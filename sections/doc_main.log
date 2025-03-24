@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.3.24)  24 MAR 2025 15:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.3.24)  24 MAR 2025 15:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -970,32 +970,51 @@ File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
 \c@mdf@zref@counter=\count355
 Package zref Info: New property: mdf@pagevalue on input line 895.
 )
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 11
-0.
+(/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
+Package: setspace 2011/12/19 v6.7a set line spacing
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshadows.code.tex
+File: tikzlibraryshadows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 
-(/usr/share/texmf/tex/latex/lm/t1lmr.fd
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryfadings.code.tex
+File: tikzlibraryfadings.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryfadings.code
+.tex
+File: pgflibraryfadings.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 11
+8.
+ (/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) (./doc_main.aux)
+)
+(./doc_main.aux)
 \openout1 = `doc_main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1020,7 +1039,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \c@lstlisting=\count362
-Package hyperref Info: Link coloring OFF on input line 110.
+Package hyperref Info: Link coloring OFF on input line 118.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -1033,9 +1052,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count363
 )
-LaTeX Info: Redefining \ref on input line 110.
-LaTeX Info: Redefining \pageref on input line 110.
-LaTeX Info: Redefining \nameref on input line 110.
+LaTeX Info: Redefining \ref on input line 118.
+LaTeX Info: Redefining \pageref on input line 118.
+LaTeX Info: Redefining \nameref on input line 118.
 
 (./doc_main.out) (./doc_main.out)
 \@outlinefile=\write4
@@ -1050,16 +1069,16 @@ LaTeX Info: Redefining \nameref on input line 110.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(71.13188pt, 455.24411pt, 71.13188pt)
-* v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
+* h-part:(L,W,R)=(72.26999pt, 452.9679pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 700.50687pt, 72.26999pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=455.24411pt
-* \textheight=702.78308pt
-* \oddsidemargin=-1.1381pt
-* \evensidemargin=-1.1381pt
-* \topmargin=-38.1381pt
-* \headheight=12.0pt
+* \textwidth=452.9679pt
+* \textheight=700.50687pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=13.59999pt
 * \headsep=25.0pt
 * \topskip=11.0pt
 * \footskip=30.0pt
@@ -1079,41 +1098,41 @@ LaTeX Info: Redefining \nameref on input line 110.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
-13.
+21.
 (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-13.
+21.
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-113.
+121.
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-113.
+121.
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 113.
+(Font)              <12> on input line 121.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 113.
+(Font)              <8> on input line 121.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 113.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 113
+(Font)              <6> on input line 121.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 121
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 113
+LaTeX Font Info:    Trying to load font information for U+msb on input line 121
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -1124,56 +1143,33 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[2]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[3])
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3])
 \tf@toc=\write5
 \openout5 = `doc_main.toc'.
 
- [4] (./section_1_introduction_to_ptx_and_the_cuda_toolchain.tex)
+ [4]
+(./section_1_introduction_to_ptx_and_the_cuda_toolchain.tex)
 (./section_2_what_is_ptx.tex
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 3
 .
  (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 2
-4.
+LaTeX Font Info:    Trying to load font information for T1+lmss on input line 1
+1.
+
+(/usr/share/texmf/tex/latex/lm/t1lmss.fd
+File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 3
+1.
 
 (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ))
-(./section_3_the_role_of_ptx_in_the_cuda_toolchain.tex
-
-LaTeX Warning: Reference `fig:cuda_pipeline' on page 5 undefined on input line 
-3.
-
-) (./section_4_why_learn_ptx_for_deep_learning.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[5]) (./section_5_inspecting_ptx_from_cuda_cc_code.tex)
+(./section_3_the_role_of_ptx_in_the_cuda_toolchain.tex [5])
+(./section_4_why_learn_ptx_for_deep_learning.tex)
+(./section_5_inspecting_ptx_from_cuda_cc_code.tex)
 (./section_6_generating_ptx_from_cuda_source_code.tex
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
@@ -1187,17 +1183,9 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 6.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 6.
-)
-(./section_7_extracting_ptx_from_compiled_code.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[6]) (./section_8_example_vector_addition_kernel.tex
+ [6])
+(./section_7_extracting_ptx_from_compiled_code.tex)
+(./section_8_example_vector_addition_kernel.tex
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
@@ -1206,17 +1194,8 @@ File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
-)
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[7]
-Overfull \hbox (3.30711pt too wide) in paragraph at lines 73--74
+) [7] [8]
+Overfull \hbox (5.58333pt too wide) in paragraph at lines 73--74
 []\T1/lmr/bx/n/10.95 Thread In-dex Cal-cu-la-tion\T1/lmr/m/n/10.95 : The code u
 ses spe-cial reg-is-ters (\T1/lmtt/m/n/10.95 %tid.x\T1/lmr/m/n/10.95 , \T1/lmtt
 /m/n/10.95 %ntid.x\T1/lmr/m/n/10.95 , \T1/lmtt/m/n/10.95 %ctaid.x\T1/lmr/m/n/10
@@ -1224,438 +1203,129 @@ ses spe-cial reg-is-ters (\T1/lmtt/m/n/10.95 %tid.x\T1/lmr/m/n/10.95 , \T1/lmtt
  []
 
 
-Overfull \hbox (5.71529pt too wide) in paragraph at lines 73--74
+Overfull \hbox (7.9915pt too wide) in paragraph at lines 73--74
 \T1/lmr/m/n/10.95 to com-pute the global thread in-dex, mir-ror-ing our C++ for
 -mula \T1/lmtt/m/n/10.95 blockIdx.x * blockDim.x
  []
 
 
-Overfull \hbox (6.2769pt too wide) in paragraph at lines 75--76
-[]\T1/lmr/bx/n/10.95 Boundary Check\T1/lmr/m/n/10.95 : The \T1/lmtt/m/n/10.95 s
-etp.ge.u32 \T1/lmr/m/n/10.95 and \T1/lmtt/m/n/10.95 @%p1 bra \T1/lmr/m/n/10.95 
-in-struc-tions im-ple-ment the \T1/lmtt/m/n/10.95 if (index
- []
-
-
-Overfull \hbox (6.9832pt too wide) in paragraph at lines 77--78
+Overfull \hbox (9.25941pt too wide) in paragraph at lines 77--78
 []\T1/lmr/bx/n/10.95 Memory Ac-cess\T1/lmr/m/n/10.95 : PTX uses ex-plicit mem-o
 ry op-er-a-tions (\T1/lmtt/m/n/10.95 ld.global.f32\T1/lmr/m/n/10.95 , \T1/lmtt/
 m/n/10.95 st.global.f32\T1/lmr/m/n/10.95 )
  []
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[8]) (./section_9_writing_and_compiling_ptx_directly.tex)
+) (./section_9_writing_and_compiling_ptx_directly.tex)
 (./section_10_approaches_to_writing_ptx.tex)
-(./section_11_inline_ptx_assembly_in_cuda_cc.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[9]) (./section_12_writing_complete_ptx_kernel_files.tex)
-(./section_13_using_nvrtc_runtime_compilation.tex)
-(./section_14_compiling_ptx_code.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[10]) (./section_15_using_ptxas.tex) (./section_16_running_ptx_kernels.tex)
-(./section_17_using_the_cuda_driver_api.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[11]) (./section_18_embedding_in_host_code.tex)
+(./section_11_inline_ptx_assembly_in_cuda_cc.tex [9])
+(./section_12_writing_complete_ptx_kernel_files.tex)
+(./section_13_using_nvrtc_runtime_compilation.tex [10])
+(./section_14_compiling_ptx_code.tex) (./section_15_using_ptxas.tex)
+(./section_16_running_ptx_kernels.tex [11])
+(./section_17_using_the_cuda_driver_api.tex)
+(./section_18_embedding_in_host_code.tex [12])
 (./section_19_ptx_syntax_and_key_constructs.tex)
 (./section_20_module_and_entry_point_directives.tex)
-(./section_21_version_and_target_directives.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[12]) (./section_22_kernel_entry_points.tex)
-(./section_23_registers_and_type_qualifiers.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[13]) (./section_24_register_declaration.tex) (./section_25_register_types.tex)
-(./section_26_register_usage_considerations.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[14]) (./section_27_thread_indexes_and_special_registers.tex)
+(./section_21_version_and_target_directives.tex)
+(./section_22_kernel_entry_points.tex [13])
+(./section_23_registers_and_type_qualifiers.tex)
+(./section_24_register_declaration.tex) (./section_25_register_types.tex
+[14]) (./section_26_register_usage_considerations.tex)
+(./section_27_thread_indexes_and_special_registers.tex)
 (./section_28_common_thread_index_registers.tex)
-(./section_29_using_thread_index_registers.tex)
-(./section_30_additional_special_registers.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[15]) (./section_31_arithmetic_and_control_flow_instructions.tex)
+(./section_29_using_thread_index_registers.tex [15])
+(./section_30_additional_special_registers.tex)
+(./section_31_arithmetic_and_control_flow_instructions.tex)
 (./section_32_basic_arithmetic_instructions.tex)
-(./section_33_vector_operations.tex)
-(./section_34_control_flow_predicates_and_branches.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[16]) (./section_35_predicated_execution.tex)
-(./section_36_implementing_loops.tex)
-(./section_37_memory_spaces_and_instructions.tex)
-(./section_38_memory_space_overview.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[17]) (./section_39_memory_access_instructions.tex)
+(./section_33_vector_operations.tex [16])
+(./section_34_control_flow_predicates_and_branches.tex)
+(./section_35_predicated_execution.tex) (./section_36_implementing_loops.tex
+[17]) (./section_37_memory_spaces_and_instructions.tex)
+(./section_38_memory_space_overview.tex)
+(./section_39_memory_access_instructions.tex [18])
 (./section_40_declaring_static_memory.tex)
-(./section_41_memory_performance_considerations.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[18]) (./section_42_memory_caching_and_control.tex)
-(./section_43_synchronization.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[19])
+(./section_41_memory_performance_considerations.tex)
+(./section_42_memory_caching_and_control.tex [19])
+(./section_43_synchronization.tex)
 (./section_44_hands_on_example_ptx_vs_cuda_c_for_a_matrix_multiply_kernel.tex)
-(./section_45_the_matrix_multiplication_problem.tex)
-(./section_46_naive_cuda_c_implementation.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[20]) (./section_47_optimized_matrix_multiply_using_shared_memory.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[21]) (./section_48_ptx_implementation_of_tiled_matrix_multiply.tex)
-(./section_49_shared_memory_and_register_declarations.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[22]) (./section_50_loading_parameters_and_computing_thread_indices.tex)
-(./section_51_initializing_the_accumulator.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[23]) (./section_52_tile_loop_implementation.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[24]) (./section_53_optimizing_the_dot_product_computation.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[25]) (./section_54_performance_considerations_and_comparison.tex
-Overfull \hbox (12.668pt too wide) in paragraph at lines 8--9
+(./section_45_the_matrix_multiplication_problem.tex [20])
+(./section_46_naive_cuda_c_implementation.tex)
+(./section_47_optimized_matrix_multiply_using_shared_memory.tex [21] [22])
+(./section_48_ptx_implementation_of_tiled_matrix_multiply.tex)
+(./section_49_shared_memory_and_register_declarations.tex)
+(./section_50_loading_parameters_and_computing_thread_indices.tex [23])
+(./section_51_initializing_the_accumulator.tex)
+(./section_52_tile_loop_implementation.tex [24] [25])
+(./section_53_optimizing_the_dot_product_computation.tex)
+(./section_54_performance_considerations_and_comparison.tex
+Overfull \hbox (14.94421pt too wide) in paragraph at lines 8--9
 []\T1/lmr/bx/n/10.95 Instruction in-ter-leav-ing\T1/lmr/m/n/10.95 : We can man-
 u-ally in-ter-leave in-struc-tions to max-i-mize instruction-
  []
 
-) (./section_55_using_tensor_core_instructions_mma_in_ptx.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[26]) (./section_56_introduction_to_tensor_cores.tex)
-(./section_57_mma_instructions_in_ptx.tex)
-(./section_58_mma_instruction_syntax.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[27]) (./section_59_warp_level_collaboration.tex)
-(./section_60_a_simplified_tensor_core_kernel_example.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[28]) (./section_61_loading_matrix_fragments.tex)
-(./section_62_performance_considerations_for_tensor_core_usage.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[29]) (./section_63_tensor_cores_in_deep_learning_workloads.tex
-Overfull \hbox (3.09756pt too wide) in paragraph at lines 8--9
-[]\T1/lmr/bx/n/10.95 Convolutions\T1/lmr/m/n/10.95 : Can be im-ple-mented as ma
--trix mul-ti-pli-ca-tions us-ing tech-niques like im2col,
- []
-
-) (./section_64_tools_and_workflow_for_debugging_and_profiling_ptx_on_linux.tex
-) (./section_65_cuda_debugger_cuda_gdb.tex)
-(./section_66_basic_debugging_with_cuda_gdb.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[30]) (./section_67_ptx_level_debugging.tex)
+[26]) (./section_55_using_tensor_core_instructions_mma_in_ptx.tex)
+(./section_56_introduction_to_tensor_cores.tex)
+(./section_57_mma_instructions_in_ptx.tex [27])
+(./section_58_mma_instruction_syntax.tex)
+(./section_59_warp_level_collaboration.tex)
+(./section_60_a_simplified_tensor_core_kernel_example.tex [28])
+(./section_61_loading_matrix_fragments.tex [29])
+(./section_62_performance_considerations_for_tensor_core_usage.tex)
+(./section_63_tensor_cores_in_deep_learning_workloads.tex [30])
+(./section_64_tools_and_workflow_for_debugging_and_profiling_ptx_on_linux.tex)
+(./section_65_cuda_debugger_cuda_gdb.tex)
+(./section_66_basic_debugging_with_cuda_gdb.tex)
+(./section_67_ptx_level_debugging.tex [31])
 (./section_68_nvidia_nsight_compute.tex)
-(./section_69_using_nsight_compute_cli.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[31]) (./section_70_interactive_profiling_with_the_gui.tex)
-(./section_71_ptxsass_correlation.tex) (./section_72_nvidia_nsight_systems.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[32]) (./section_73_binary_utilities_cuobjdump_and_nvdisasm.tex)
-(./section_74_cuobjdump.tex) (./section_75_nvdisasm.tex)
-(./section_76_cuda_compute_sanitizer.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[33]) (./section_77_a_practical_debugging_and_optimization_workflow.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[34]) (./section_78_best_practices_for_writing_performant_ptx.tex)
+(./section_69_using_nsight_compute_cli.tex)
+(./section_70_interactive_profiling_with_the_gui.tex)
+(./section_71_ptxsass_correlation.tex [32])
+(./section_72_nvidia_nsight_systems.tex)
+(./section_73_binary_utilities_cuobjdump_and_nvdisasm.tex)
+(./section_74_cuobjdump.tex) (./section_75_nvdisasm.tex [33])
+(./section_76_cuda_compute_sanitizer.tex)
+(./section_77_a_practical_debugging_and_optimization_workflow.tex [34])
+(./section_78_best_practices_for_writing_performant_ptx.tex)
 (./section_79_start_with_a_reference_implementation.tex)
 (./section_80_memory_access_optimization.tex)
-(./section_81_global_memory_coalescing.tex)
-(./section_82_use_shared_memory_for_data_reuse.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[35]) (./section_83_minimize_bank_conflicts_in_shared_memory.tex)
+(./section_81_global_memory_coalescing.tex [35])
+(./section_82_use_shared_memory_for_data_reuse.tex)
+(./section_83_minimize_bank_conflicts_in_shared_memory.tex [36])
 (./section_84_register_usage_optimization.tex)
-(./section_85_monitor_register_count.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[36]) (./section_86_avoid_register_spilling.tex)
-(./section_87_register_pressure_vs_recomputation.tex)
+(./section_85_monitor_register_count.tex)
+(./section_86_avoid_register_spilling.tex)
+(./section_87_register_pressure_vs_recomputation.tex [37])
 (./section_88_instruction_level_optimization.tex)
-(./section_89_exploit_instruction_level_parallelism_ilp.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[37]) (./section_90_utilize_special_math_instructions.tex)
-(./section_91_loop_unrolling.tex) (./section_92_warp_level_optimization.tex)
-(./section_93_minimize_warp_divergence.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[38]) (./section_94_leverage_warp_level_primitives.tex)
+(./section_89_exploit_instruction_level_parallelism_ilp.tex)
+(./section_90_utilize_special_math_instructions.tex)
+(./section_91_loop_unrolling.tex [38])
+(./section_92_warp_level_optimization.tex)
+(./section_93_minimize_warp_divergence.tex)
+(./section_94_leverage_warp_level_primitives.tex [39])
 (./section_95_memory_hierarchy_management.tex)
 (./section_96_use_texture_memory_for_read_only_data_with_spatial_locality.tex)
-(./section_97_leverage_l2_cache_with_appropriate_hints.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[39]) (./section_98_consider_asynchronous_memory_operations.tex)
+(./section_97_leverage_l2_cache_with_appropriate_hints.tex)
+(./section_98_consider_asynchronous_memory_operations.tex [40])
 (./section_99_architecture_specific_optimizations.tex)
 (./section_100_tensor_cores.tex) (./section_101_newer_architecture_features.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[40]) (./section_102_practical_optimization_strategy.tex)
+) (./section_102_practical_optimization_strategy.tex [41])
 (./section_103_case_studies_ptx_optimization_for_deep_learning_kernels.tex)
 (./section_104_case_study_1_fused_activation_functions.tex)
-(./section_105_the_challenge.tex) (./section_106_the_ptx_solution.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[41]) (./section_107_performance_impact.tex)
+(./section_105_the_challenge.tex) (./section_106_the_ptx_solution.tex)
+(./section_107_performance_impact.tex [42])
 (./section_108_case_study_2_custom_attention_mechanism.tex)
-(./section_109_the_challenge.tex) (./section_110_the_ptx_solution.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[42]) (./section_111_performance_impact.tex
-Overfull \hbox (24.05737pt too wide) in paragraph at lines 10--11
+(./section_109_the_challenge.tex) (./section_110_the_ptx_solution.tex [43])
+(./section_111_performance_impact.tex
+Overfull \hbox (26.33359pt too wide) in paragraph at lines 10--11
 []\T1/lmr/m/n/10.95 These im-prove-ments di-rectly trans-lated to over-all mode
 l through-put im-prove-ments in transformer-
  []
 
 ) (./section_112_case_study_3_quantized_tensor_core_operations.tex)
-(./section_113_the_challenge.tex) (./section_114_the_ptx_solution.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[43]) (./section_115_performance_impact.tex)
+(./section_113_the_challenge.tex) (./section_114_the_ptx_solution.tex [44])
+(./section_115_performance_impact.tex)
 (./section_116_case_study_4_custom_layer_normalization.tex)
 (./section_117_the_challenge.tex) (./section_118_the_ptx_solution.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[44]
 
 ! LaTeX Error: Invalid UTF-8 byte sequence (Â\expandafter).
 
@@ -1716,17 +1386,9 @@ or specify an encoding such as \usepackage [latin1]{inputenc}
 in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
-) (./section_119_performance_impact.tex)
-(./section_120_lessons_from_case_studies.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[45]) (./section_121_transitioning_from_cuda_c_to_ptx.tex)
+[45]) (./section_119_performance_impact.tex)
+(./section_120_lessons_from_case_studies.tex [46])
+(./section_121_transitioning_from_cuda_c_to_ptx.tex)
 (./section_122_conceptual_mapping.tex
 ! Extra alignment tab has been changed to \cr.
 <template> \unskip \hfil }\endtemplate 
@@ -1737,176 +1399,40 @@ You have given more \span or & marks than there were
 in the preamble to the \halign or \valign now in progress.
 So I'll assume that you meant to type \cr instead.
 
-) (./section_123_thread_and_block_indexing.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[46]) (./section_124_memory_access_and_address_calculation.tex)
-(./section_125_shared_memory_usage.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[47]) (./section_126_control_flow.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[48]) (./section_127_predicated_execution_vs_branching.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[49]) (./section_128_common_pitfalls_in_transition.tex)
-(./section_129_register_management.tex) (./section_130_memory_alignment.tex)
-(./section_131_synchronization.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[50]) (./section_132_literal_representation.tex)
+) (./section_123_thread_and_block_indexing.tex [47])
+(./section_124_memory_access_and_address_calculation.tex)
+(./section_125_shared_memory_usage.tex [48]) (./section_126_control_flow.tex
+[49]) (./section_127_predicated_execution_vs_branching.tex)
+(./section_128_common_pitfalls_in_transition.tex)
+(./section_129_register_management.tex [50])
+(./section_130_memory_alignment.tex) (./section_131_synchronization.tex)
+(./section_132_literal_representation.tex [51])
 (./section_133_the_transition_process.tex)
-(./section_134_when_to_use_ptx_vs_cuda_c.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[51]) (./section_135_practical_examples_with_complete_code.tex)
+(./section_134_when_to_use_ptx_vs_cuda_c.tex [52])
+(./section_135_practical_examples_with_complete_code.tex)
 (./section_136_example_1_vector_addition_with_ptx.tex)
-(./section_137_the_ptx_kernel.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[52]) (./section_138_host_code_to_launch_the_ptx_kernel.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[53]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[54]) (./section_139_compilation_and_execution.tex)
+(./section_137_the_ptx_kernel.tex [53])
+(./section_138_host_code_to_launch_the_ptx_kernel.tex [54] [55])
+(./section_139_compilation_and_execution.tex)
 (./section_140_example_2_element_wise_relu_activation_with_inline_ptx.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[55]) (./section_141_example_3_tensor_core_matrix_multiplication.tex)
-(./section_142_ptx_kernel_for_tensor_core_matrix_multiplication.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[56]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[57]) (./section_143_host_code_considerations.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[58]) (./section_144_conclusion.tex) (./section_145_key_takeaways.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[59]) (./section_146_when_to_use_ptx.tex)
+[56]) (./section_141_example_3_tensor_core_matrix_multiplication.tex)
+(./section_142_ptx_kernel_for_tensor_core_matrix_multiplication.tex [57]
+[58]) (./section_143_host_code_considerations.tex [59])
+(./section_144_conclusion.tex) (./section_145_key_takeaways.tex [60])
+(./section_146_when_to_use_ptx.tex)
 (./section_147_the_future_of_ptx_and_gpu_programming.tex)
-(./section_148_final_thoughts.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[60]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[61] (./doc_main.aux)
-
-LaTeX Warning: There were undefined references.
-
+(./section_148_final_thoughts.tex [61] [62] (./doc_main.aux)
 Package rerunfilecheck Info: File `doc_main.out' has not changed.
 (rerunfilecheck)             Checksum: 020FAC4DF4AECDC4E002A11DBE9D56E5;31659.
  ) ) 
 Here is how much of TeX's memory you used:
- 32680 strings out of 480171
- 614802 string characters out of 5894489
- 1577061 words of memory out of 5000000
- 48165 multiletter control sequences out of 15000+600000
- 535592 words of font info for 81 fonts, out of 8000000 for 9000
+ 32977 strings out of 480171
+ 622443 string characters out of 5894489
+ 1570081 words of memory out of 5000000
+ 48439 multiletter control sequences out of 15000+600000
+ 541453 words of font info for 84 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 83i,12n,80p,729b,1931s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 83i,12n,80p,599b,1931s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texmf/fonts/
 enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr
 /share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips
@@ -1917,12 +1443,13 @@ s/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb>
 </usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1
 /public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/sha
 re/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm
-/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf
-/fonts/type1/public/lm/lmtt10.pfb>
-Output written on doc_main.pdf (61 pages, 485471 bytes).
+/lmss10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texm
+f/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt1
+0.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt8.pfb>
+Output written on doc_main.pdf (62 pages, 528850 bytes).
 PDF statistics:
- 2735 PDF objects out of 2984 (max. 8388607)
- 2619 compressed objects within 27 object streams
- 1518 named destinations out of 1728 (max. 500000)
- 1197 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2776 PDF objects out of 2984 (max. 8388607)
+ 2639 compressed objects within 27 object streams
+ 1520 named destinations out of 1728 (max. 500000)
+ 1293 words of extra memory for PDF output out of 10000 (max. 10000000)
 

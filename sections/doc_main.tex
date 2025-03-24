@@ -24,6 +24,12 @@
 \usepackage{natbib}
 \usepackage{lipsum}
 \usepackage{mdframed}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{setspace}
+\usetikzlibrary{shadows,positioning}
+
+
 
 % Define code listing style
 \lstset{
@@ -83,9 +89,11 @@
     #1
   \end{tcolorbox}
 }
+\setlength{\headheight}{13.59999pt}
 
 % Set up headers and footers
 \pagestyle{fancy}
+
 \fancyhf{}
 \fancyhead[L]{Low-Level CUDA Optimization with PTX}
 \fancyhead[R]{Page \thepage}
@@ -113,7 +121,13 @@
 \thispagestyle{empty}
 
 \begin{abstract}
-This tutorial provides a comprehensive introduction to Parallel Thread Execution (PTX), NVIDIA's low-level assembly-like language for GPU programming. Designed for developers familiar with CUDA C/C++ who want to achieve peak performance in deep learning workloads, this guide walks through the fundamentals of PTX, how to write and optimize PTX code, and how to leverage GPU hardware features like Tensor Cores. We'll explore practical examples, case studies, and performance optimization techniques specific to deep learning applications. By understanding PTX, developers can gain deeper insights into GPU execution and unlock performance optimizations beyond what high-level languages provide.
+This tutorial provides a comprehensive introduction to Parallel Thread Execution (PTX), NVIDIA's low-level assembly-like language for GPU programming.
+Designed for developers familiar with CUDA C/C++ who want to achieve peak performance in deep learning workloads, this guide walks through the fundamentals of PTX, how to write and optimize PTX code, and how to leverage GPU hardware features like Tensor Cores.
+We'll explore practical examples, case studies, and performance optimization techniques specific to deep learning applications.
+By understanding PTX, developers can gain deeper insights into GPU execution and unlock performance optimizations beyond what high-level languages provide.
+
+\textbf{Note: For now, this guide has been developed with purely AI assistance. I am not expert in this field, so please do not use this material as a source of truth.}
+
 \end{abstract}
 
 \vspace{1cm}
