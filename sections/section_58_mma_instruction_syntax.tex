@@ -29,11 +29,12 @@ Let's break down the components of this instruction:
     \item \texttt{f16.f16.f16.f16} - Data types for A, B, C, and D matrices (all FP16 in this case)
     
     \item The register lists in curly braces are the matrices' "fragments":
+
     \begin{itemize}
-        \item \texttt{\{%d0,...,%d3\}} - Output matrix D (result)
-        \item \texttt{\{%a0,...,%a3\}} - Input matrix A
-        \item \texttt{\{%b0,%b1\}} - Input matrix B
-        \item \texttt{\{%c0,...,%c3\}} - Accumulator matrix C
+        \item \texttt{\{\%d0,\%d1,\%d2,\%d3\}} - Output matrix D (result of A×B+C)
+        \item \texttt{\{\%a0,\%a1,\%a2,\%a3\}} - Input matrix A (16×16 in this example)
+        \item \texttt{\{\%b0,\%b1\}} - Input matrix B (16×8 in this example)
+        \item \texttt{\{\%c0,\%c1,\%c2,\%c3\}} - Accumulator matrix C (16×8, same dimensions as output D)
     \end{itemize}
 \end{itemize}
 

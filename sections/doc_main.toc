@@ -63,47 +63,47 @@
 \contentsline {subsection}{\numberline {6.6}Tensor Cores in Deep Learning Workloads}{30}{subsection.6.6}%
 \contentsline {section}{\numberline {7}Tools and Workflow for Debugging and Profiling PTX on Linux}{30}{section.7}%
 \contentsline {subsection}{\numberline {7.1}CUDA Debugger (cuda-gdb)}{30}{subsection.7.1}%
-\contentsline {subsubsection}{\numberline {7.1.1}Basic Debugging with cuda-gdb}{30}{subsubsection.7.1.1}%
+\contentsline {subsubsection}{\numberline {7.1.1}Basic Debugging with cuda-gdb}{31}{subsubsection.7.1.1}%
 \contentsline {subsubsection}{\numberline {7.1.2}PTX-Level Debugging}{31}{subsubsection.7.1.2}%
 \contentsline {subsection}{\numberline {7.2}NVIDIA Nsight Compute}{31}{subsection.7.2}%
 \contentsline {subsubsection}{\numberline {7.2.1}Using Nsight Compute CLI}{31}{subsubsection.7.2.1}%
-\contentsline {subsubsection}{\numberline {7.2.2}Interactive Profiling with the GUI}{31}{subsubsection.7.2.2}%
+\contentsline {subsubsection}{\numberline {7.2.2}Interactive Profiling with the GUI}{32}{subsubsection.7.2.2}%
 \contentsline {subsubsection}{\numberline {7.2.3}PTX/SASS Correlation}{32}{subsubsection.7.2.3}%
 \contentsline {subsection}{\numberline {7.3}NVIDIA Nsight Systems}{32}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Binary Utilities: cuobjdump and nvdisasm}{32}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.4}Binary Utilities: cuobjdump and nvdisasm}{33}{subsection.7.4}%
 \contentsline {subsubsection}{\numberline {7.4.1}cuobjdump}{33}{subsubsection.7.4.1}%
 \contentsline {subsubsection}{\numberline {7.4.2}nvdisasm}{33}{subsubsection.7.4.2}%
 \contentsline {subsection}{\numberline {7.5}CUDA Compute Sanitizer}{33}{subsection.7.5}%
-\contentsline {subsection}{\numberline {7.6}A Practical Debugging and Optimization Workflow}{33}{subsection.7.6}%
-\contentsline {section}{\numberline {8}Best Practices for Writing Performant PTX}{34}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Start with a Reference Implementation}{34}{subsection.8.1}%
+\contentsline {subsection}{\numberline {7.6}A Practical Debugging and Optimization Workflow}{34}{subsection.7.6}%
+\contentsline {section}{\numberline {8}Best Practices for Writing Performant PTX}{35}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Start with a Reference Implementation}{35}{subsection.8.1}%
 \contentsline {subsection}{\numberline {8.2}Memory Access Optimization}{35}{subsection.8.2}%
 \contentsline {subsubsection}{\numberline {8.2.1}Global Memory Coalescing}{35}{subsubsection.8.2.1}%
-\contentsline {subsubsection}{\numberline {8.2.2}Use Shared Memory for Data Reuse}{35}{subsubsection.8.2.2}%
+\contentsline {subsubsection}{\numberline {8.2.2}Use Shared Memory for Data Reuse}{36}{subsubsection.8.2.2}%
 \contentsline {subsubsection}{\numberline {8.2.3}Minimize Bank Conflicts in Shared Memory}{36}{subsubsection.8.2.3}%
 \contentsline {subsection}{\numberline {8.3}Register Usage Optimization}{36}{subsection.8.3}%
 \contentsline {subsubsection}{\numberline {8.3.1}Monitor Register Count}{36}{subsubsection.8.3.1}%
-\contentsline {subsubsection}{\numberline {8.3.2}Avoid Register Spilling}{36}{subsubsection.8.3.2}%
-\contentsline {subsubsection}{\numberline {8.3.3}Register Pressure vs. Recomputation}{36}{subsubsection.8.3.3}%
+\contentsline {subsubsection}{\numberline {8.3.2}Avoid Register Spilling}{37}{subsubsection.8.3.2}%
+\contentsline {subsubsection}{\numberline {8.3.3}Register Pressure vs. Recomputation}{37}{subsubsection.8.3.3}%
 \contentsline {subsection}{\numberline {8.4}Instruction-Level Optimization}{37}{subsection.8.4}%
 \contentsline {subsubsection}{\numberline {8.4.1}Exploit Instruction-Level Parallelism (ILP)}{37}{subsubsection.8.4.1}%
-\contentsline {subsubsection}{\numberline {8.4.2}Utilize Special Math Instructions}{37}{subsubsection.8.4.2}%
+\contentsline {subsubsection}{\numberline {8.4.2}Utilize Special Math Instructions}{38}{subsubsection.8.4.2}%
 \contentsline {subsubsection}{\numberline {8.4.3}Loop Unrolling}{38}{subsubsection.8.4.3}%
 \contentsline {subsection}{\numberline {8.5}Warp-Level Optimization}{38}{subsection.8.5}%
 \contentsline {subsubsection}{\numberline {8.5.1}Minimize Warp Divergence}{38}{subsubsection.8.5.1}%
 \contentsline {subsubsection}{\numberline {8.5.2}Leverage Warp-Level Primitives}{39}{subsubsection.8.5.2}%
 \contentsline {subsection}{\numberline {8.6}Memory Hierarchy Management}{39}{subsection.8.6}%
 \contentsline {subsubsection}{\numberline {8.6.1}Use Texture Memory for Read-Only Data with Spatial Locality}{39}{subsubsection.8.6.1}%
-\contentsline {subsubsection}{\numberline {8.6.2}Leverage L2 Cache with Appropriate Hints}{39}{subsubsection.8.6.2}%
+\contentsline {subsubsection}{\numberline {8.6.2}Leverage L2 Cache with Appropriate Hints}{40}{subsubsection.8.6.2}%
 \contentsline {subsubsection}{\numberline {8.6.3}Consider Asynchronous Memory Operations}{40}{subsubsection.8.6.3}%
 \contentsline {subsection}{\numberline {8.7}Architecture-Specific Optimizations}{40}{subsection.8.7}%
 \contentsline {subsubsection}{\numberline {8.7.1}Tensor Cores}{40}{subsubsection.8.7.1}%
 \contentsline {subsubsection}{\numberline {8.7.2}Newer Architecture Features}{40}{subsubsection.8.7.2}%
-\contentsline {subsection}{\numberline {8.8}Practical Optimization Strategy}{40}{subsection.8.8}%
+\contentsline {subsection}{\numberline {8.8}Practical Optimization Strategy}{41}{subsection.8.8}%
 \contentsline {section}{\numberline {9}Case Studies: PTX Optimization for Deep Learning Kernels}{41}{section.9}%
 \contentsline {subsection}{\numberline {9.1}Case Study 1: Fused Activation Functions}{41}{subsection.9.1}%
 \contentsline {subsubsection}{\numberline {9.1.1}The Challenge}{41}{subsubsection.9.1.1}%
-\contentsline {subsubsection}{\numberline {9.1.2}The PTX Solution}{41}{subsubsection.9.1.2}%
+\contentsline {subsubsection}{\numberline {9.1.2}The PTX Solution}{42}{subsubsection.9.1.2}%
 \contentsline {subsubsection}{\numberline {9.1.3}Performance Impact}{42}{subsubsection.9.1.3}%
 \contentsline {subsection}{\numberline {9.2}Case Study 2: Custom Attention Mechanism}{42}{subsection.9.2}%
 \contentsline {subsubsection}{\numberline {9.2.1}The Challenge}{42}{subsubsection.9.2.1}%
@@ -111,16 +111,16 @@
 \contentsline {subsubsection}{\numberline {9.2.3}Performance Impact}{43}{subsubsection.9.2.3}%
 \contentsline {subsection}{\numberline {9.3}Case Study 3: Quantized Tensor Core Operations}{43}{subsection.9.3}%
 \contentsline {subsubsection}{\numberline {9.3.1}The Challenge}{43}{subsubsection.9.3.1}%
-\contentsline {subsubsection}{\numberline {9.3.2}The PTX Solution}{43}{subsubsection.9.3.2}%
+\contentsline {subsubsection}{\numberline {9.3.2}The PTX Solution}{44}{subsubsection.9.3.2}%
 \contentsline {subsubsection}{\numberline {9.3.3}Performance Impact}{44}{subsubsection.9.3.3}%
 \contentsline {subsection}{\numberline {9.4}Case Study 4: Custom Layer Normalization}{44}{subsection.9.4}%
 \contentsline {subsubsection}{\numberline {9.4.1}The Challenge}{44}{subsubsection.9.4.1}%
-\contentsline {subsubsection}{\numberline {9.4.2}The PTX Solution}{44}{subsubsection.9.4.2}%
+\contentsline {subsubsection}{\numberline {9.4.2}The PTX Solution}{45}{subsubsection.9.4.2}%
 \contentsline {subsubsection}{\numberline {9.4.3}Performance Impact}{45}{subsubsection.9.4.3}%
 \contentsline {subsection}{\numberline {9.5}Lessons from Case Studies}{45}{subsection.9.5}%
 \contentsline {section}{\numberline {10}Transitioning from CUDA C++ to PTX}{46}{section.10}%
 \contentsline {subsection}{\numberline {10.1}Conceptual Mapping}{46}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}Thread and Block Indexing}{46}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.2}Thread and Block Indexing}{47}{subsection.10.2}%
 \contentsline {subsection}{\numberline {10.3}Memory Access and Address Calculation}{47}{subsection.10.3}%
 \contentsline {subsection}{\numberline {10.4}Shared Memory Usage}{47}{subsection.10.4}%
 \contentsline {subsection}{\numberline {10.5}Control Flow}{48}{subsection.10.5}%
@@ -138,11 +138,11 @@
 \contentsline {subsubsection}{\numberline {11.1.2}Host Code to Launch the PTX Kernel}{53}{subsubsection.11.1.2}%
 \contentsline {subsubsection}{\numberline {11.1.3}Compilation and Execution}{55}{subsubsection.11.1.3}%
 \contentsline {subsection}{\numberline {11.2}Example 2: Element-wise ReLU Activation with Inline PTX}{56}{subsection.11.2}%
-\contentsline {subsection}{\numberline {11.3}Example 3: Tensor Core Matrix Multiplication}{57}{subsection.11.3}%
-\contentsline {subsubsection}{\numberline {11.3.1}PTX Kernel for Tensor Core Matrix Multiplication}{57}{subsubsection.11.3.1}%
-\contentsline {subsubsection}{\numberline {11.3.2}Host Code Considerations}{59}{subsubsection.11.3.2}%
-\contentsline {section}{\numberline {12}Conclusion}{60}{section.12}%
+\contentsline {subsection}{\numberline {11.3}Example 3: Tensor Core Matrix Multiplication}{56}{subsection.11.3}%
+\contentsline {subsubsection}{\numberline {11.3.1}PTX Kernel for Tensor Core Matrix Multiplication}{56}{subsubsection.11.3.1}%
+\contentsline {subsubsection}{\numberline {11.3.2}Host Code Considerations}{58}{subsubsection.11.3.2}%
+\contentsline {section}{\numberline {12}Conclusion}{59}{section.12}%
 \contentsline {subsection}{\numberline {12.1}Key Takeaways}{60}{subsection.12.1}%
 \contentsline {subsection}{\numberline {12.2}When to Use PTX}{60}{subsection.12.2}%
-\contentsline {subsection}{\numberline {12.3}The Future of PTX and GPU Programming}{61}{subsection.12.3}%
-\contentsline {subsection}{\numberline {12.4}Final Thoughts}{61}{subsection.12.4}%
+\contentsline {subsection}{\numberline {12.3}The Future of PTX and GPU Programming}{60}{subsection.12.3}%
+\contentsline {subsection}{\numberline {12.4}Final Thoughts}{60}{subsection.12.4}%

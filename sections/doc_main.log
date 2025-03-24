@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.3.24)  24 MAR 2025 14:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.3.24)  24 MAR 2025 15:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1216,7 +1216,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [7]
-Overfull \hbox (3.30711pt too wide) in paragraph at lines 72--73
+Overfull \hbox (3.30711pt too wide) in paragraph at lines 73--74
 []\T1/lmr/bx/n/10.95 Thread In-dex Cal-cu-la-tion\T1/lmr/m/n/10.95 : The code u
 ses spe-cial reg-is-ters (\T1/lmtt/m/n/10.95 %tid.x\T1/lmr/m/n/10.95 , \T1/lmtt
 /m/n/10.95 %ntid.x\T1/lmr/m/n/10.95 , \T1/lmtt/m/n/10.95 %ctaid.x\T1/lmr/m/n/10
@@ -1224,20 +1224,20 @@ ses spe-cial reg-is-ters (\T1/lmtt/m/n/10.95 %tid.x\T1/lmr/m/n/10.95 , \T1/lmtt
  []
 
 
-Overfull \hbox (5.71529pt too wide) in paragraph at lines 72--73
+Overfull \hbox (5.71529pt too wide) in paragraph at lines 73--74
 \T1/lmr/m/n/10.95 to com-pute the global thread in-dex, mir-ror-ing our C++ for
 -mula \T1/lmtt/m/n/10.95 blockIdx.x * blockDim.x
  []
 
 
-Overfull \hbox (6.2769pt too wide) in paragraph at lines 74--75
+Overfull \hbox (6.2769pt too wide) in paragraph at lines 75--76
 []\T1/lmr/bx/n/10.95 Boundary Check\T1/lmr/m/n/10.95 : The \T1/lmtt/m/n/10.95 s
 etp.ge.u32 \T1/lmr/m/n/10.95 and \T1/lmtt/m/n/10.95 @%p1 bra \T1/lmr/m/n/10.95 
 in-struc-tions im-ple-ment the \T1/lmtt/m/n/10.95 if (index
  []
 
 
-Overfull \hbox (6.9832pt too wide) in paragraph at lines 76--77
+Overfull \hbox (6.9832pt too wide) in paragraph at lines 77--78
 []\T1/lmr/bx/n/10.95 Memory Ac-cess\T1/lmr/m/n/10.95 : PTX uses ex-plicit mem-o
 ry op-er-a-tions (\T1/lmtt/m/n/10.95 ld.global.f32\T1/lmr/m/n/10.95 , \T1/lmtt/
 m/n/10.95 st.global.f32\T1/lmr/m/n/10.95 )
@@ -1457,20 +1457,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[27])
-Runaway argument?
-{\{\item \texttt {\{\item \texttt {\{\item \texttt {\{\end {itemize} \ETC.
-! File ended while scanning use of \texttt .
-<inserted text> 
-                \par 
-l.182 ...ut{section_58_mma_instruction_syntax.tex}
-                                                  
-I suspect you have forgotten a `}', causing me
-to read past where you wanted me to stop.
-I'll try to recover; but if the error is serious,
-you'd better type `E' or `X' now and fix your file.
-
-(./section_59_warp_level_collaboration.tex)
+[27]) (./section_59_warp_level_collaboration.tex)
 (./section_60_a_simplified_tensor_core_kernel_example.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1481,8 +1468,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [28]) (./section_61_loading_matrix_fragments.tex)
-(./section_62_performance_considerations_for_tensor_core_usage.tex)
-(./section_63_tensor_cores_in_deep_learning_workloads.tex
+(./section_62_performance_considerations_for_tensor_core_usage.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1491,10 +1477,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[29]
-Overfull \hbox (17.18672pt too wide) in paragraph at lines 6--7
-[]\T1/lmr/bx/n/10.95 General Ma-trix Mul-ti-pli-ca-tion (GEMM)\T1/lmr/m/n/10.95
- : The core op-er-a-tion in fully-connected
+[29]) (./section_63_tensor_cores_in_deep_learning_workloads.tex
+Overfull \hbox (3.09756pt too wide) in paragraph at lines 8--9
+[]\T1/lmr/bx/n/10.95 Convolutions\T1/lmr/m/n/10.95 : Can be im-ple-mented as ma
+-trix mul-ti-pli-ca-tions us-ing tech-niques like im2col,
  []
 
 ) (./section_64_tools_and_workflow_for_debugging_and_profiling_ptx_on_linux.tex
@@ -1510,8 +1496,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [30]) (./section_67_ptx_level_debugging.tex)
 (./section_68_nvidia_nsight_compute.tex)
-(./section_69_using_nsight_compute_cli.tex)
-(./section_70_interactive_profiling_with_the_gui.tex
+(./section_69_using_nsight_compute_cli.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1520,10 +1505,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[31]) (./section_71_ptxsass_correlation.tex)
-(./section_72_nvidia_nsight_systems.tex)
-(./section_73_binary_utilities_cuobjdump_and_nvdisasm.tex)
-(./section_74_cuobjdump.tex
+[31]) (./section_70_interactive_profiling_with_the_gui.tex)
+(./section_71_ptxsass_correlation.tex) (./section_72_nvidia_nsight_systems.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1532,8 +1515,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[32]) (./section_75_nvdisasm.tex) (./section_76_cuda_compute_sanitizer.tex)
-(./section_77_a_practical_debugging_and_optimization_workflow.tex
+[32]) (./section_73_binary_utilities_cuobjdump_and_nvdisasm.tex)
+(./section_74_cuobjdump.tex) (./section_75_nvdisasm.tex)
+(./section_76_cuda_compute_sanitizer.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1542,10 +1526,20 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[33]) (./section_78_best_practices_for_writing_performant_ptx.tex)
+[33]) (./section_77_a_practical_debugging_and_optimization_workflow.tex
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[34]) (./section_78_best_practices_for_writing_performant_ptx.tex)
 (./section_79_start_with_a_reference_implementation.tex)
 (./section_80_memory_access_optimization.tex)
-(./section_81_global_memory_coalescing.tex
+(./section_81_global_memory_coalescing.tex)
+(./section_82_use_shared_memory_for_data_reuse.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1554,8 +1548,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[34]) (./section_82_use_shared_memory_for_data_reuse.tex)
-(./section_83_minimize_bank_conflicts_in_shared_memory.tex
+[35]) (./section_83_minimize_bank_conflicts_in_shared_memory.tex)
+(./section_84_register_usage_optimization.tex)
+(./section_85_monitor_register_count.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1564,10 +1559,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[35]) (./section_84_register_usage_optimization.tex)
-(./section_85_monitor_register_count.tex)
-(./section_86_avoid_register_spilling.tex)
-(./section_87_register_pressure_vs_recomputation.tex
+[36]) (./section_86_avoid_register_spilling.tex)
+(./section_87_register_pressure_vs_recomputation.tex)
+(./section_88_instruction_level_optimization.tex)
+(./section_89_exploit_instruction_level_parallelism_ilp.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1576,19 +1571,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[36]) (./section_88_instruction_level_optimization.tex)
-(./section_89_exploit_instruction_level_parallelism_ilp.tex)
-(./section_90_utilize_special_math_instructions.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[37]) (./section_91_loop_unrolling.tex)
-(./section_92_warp_level_optimization.tex)
+[37]) (./section_90_utilize_special_math_instructions.tex)
+(./section_91_loop_unrolling.tex) (./section_92_warp_level_optimization.tex)
 (./section_93_minimize_warp_divergence.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1613,7 +1597,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [39]) (./section_98_consider_asynchronous_memory_operations.tex)
 (./section_99_architecture_specific_optimizations.tex)
 (./section_100_tensor_cores.tex) (./section_101_newer_architecture_features.tex
-) (./section_102_practical_optimization_strategy.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1622,7 +1605,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[40])
+[40]) (./section_102_practical_optimization_strategy.tex)
 (./section_103_case_studies_ptx_optimization_for_deep_learning_kernels.tex)
 (./section_104_case_study_1_fused_activation_functions.tex)
 (./section_105_the_challenge.tex) (./section_106_the_ptx_solution.tex
@@ -1645,8 +1628,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[42]) (./section_111_performance_impact.tex)
-(./section_112_case_study_3_quantized_tensor_core_operations.tex)
+[42]) (./section_111_performance_impact.tex
+Overfull \hbox (24.05737pt too wide) in paragraph at lines 10--11
+[]\T1/lmr/m/n/10.95 These im-prove-ments di-rectly trans-lated to over-all mode
+l through-put im-prove-ments in transformer-
+ []
+
+) (./section_112_case_study_3_quantized_tensor_core_operations.tex)
 (./section_113_the_challenge.tex) (./section_114_the_ptx_solution.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1837,7 +1825,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[54]) (./section_139_compilation_and_execution.tex
+[54]) (./section_139_compilation_and_execution.tex)
+(./section_140_example_2_element_wise_relu_activation_with_inline_ptx.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1846,14 +1835,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[55]) (./section_140_example_2_element_wise_relu_activation_with_inline_ptx.tex
-
-Overfull \hbox (37.75087pt too wide) in paragraph at lines 36--37
-\T1/lmr/m/n/10.95 doesn't pro-vide a sig-nif-i-cant ad-van-tage over the C++ eq
-uiv-a-lent (`data[idx] = fmaxf(data[idx],
- []
-
-) (./section_141_example_3_tensor_core_matrix_multiplication.tex
+[55]) (./section_141_example_3_tensor_core_matrix_multiplication.tex)
+(./section_142_ptx_kernel_for_tensor_core_matrix_multiplication.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1862,7 +1845,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[56]) (./section_142_ptx_kernel_for_tensor_core_matrix_multiplication.tex
+[56]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1871,7 +1854,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[57]
+[57]) (./section_143_host_code_considerations.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1880,7 +1863,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[58]) (./section_143_host_code_considerations.tex
+[58]) (./section_144_conclusion.tex) (./section_145_key_takeaways.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1889,9 +1872,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[59]) (./section_144_conclusion.tex) (./section_145_key_takeaways.tex)
-(./section_146_when_to_use_ptx.tex)
-(./section_147_the_future_of_ptx_and_gpu_programming.tex
+[59]) (./section_146_when_to_use_ptx.tex)
+(./section_147_the_future_of_ptx_and_gpu_programming.tex)
+(./section_148_final_thoughts.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1900,7 +1883,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[60]) (./section_148_final_thoughts.tex
+[60]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1909,56 +1892,37 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[61]
-
-! LaTeX Error: \begin{itemize} on input line 32 ended by \end{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.30 \end{document}
-                   
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-(./doc_main.aux)
+[61] (./doc_main.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `doc_main.out' has not changed.
 (rerunfilecheck)             Checksum: 020FAC4DF4AECDC4E002A11DBE9D56E5;31659.
- ) )
-(\end occurred inside a group at level 2)
-
-### semi simple group (level 2) entered at line 32 (\begingroup)
-### semi simple group (level 1) entered at line 15 (\begingroup)
-### bottom level 
+ ) ) 
 Here is how much of TeX's memory you used:
- 32681 strings out of 480171
- 614831 string characters out of 5894489
- 1516061 words of memory out of 5000000
- 48167 multiletter control sequences out of 15000+600000
+ 32680 strings out of 480171
+ 614802 string characters out of 5894489
+ 1577061 words of memory out of 5000000
+ 48165 multiletter control sequences out of 15000+600000
  535592 words of font info for 81 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 83i,12n,80p,729b,2601s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/
-texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-math
-sy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fon
-ts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}</usr
-/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/pub
-lic/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/shar
-e/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/l
-m/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf
-/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.p
-fb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/typ
-e1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr
-/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on doc_main.pdf (61 pages, 487599 bytes).
+ 83i,12n,80p,729b,1931s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texmf/fonts/
+enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr
+/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips
+/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}</usr/share/texmf
+/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx1
+2.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/font
+s/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb>
+</usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1
+/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/sha
+re/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm
+/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf
+/fonts/type1/public/lm/lmtt10.pfb>
+Output written on doc_main.pdf (61 pages, 485471 bytes).
 PDF statistics:
- 2734 PDF objects out of 2984 (max. 8388607)
- 2618 compressed objects within 27 object streams
- 1517 named destinations out of 1728 (max. 500000)
+ 2735 PDF objects out of 2984 (max. 8388607)
+ 2619 compressed objects within 27 object streams
+ 1518 named destinations out of 1728 (max. 500000)
  1197 words of extra memory for PDF output out of 10000 (max. 10000000)
 
