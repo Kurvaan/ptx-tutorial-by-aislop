@@ -1,0 +1,24 @@
+\subsubsection{Memory Caching and Control}
+
+PTX gives some control over the caching behavior of global memory operations. For example:
+
+\begin{lstlisting}[style=ptx]
+// Cache at global level only
+ld.global.cg.f32 %f1, [%rd1];
+
+// Cache at all levels
+ld.global.ca.f32 %f1, [%rd1];
+
+// Specify cache line size (Ampere+)
+ld.global.L2::128B.f32 %f1, [%rd1];
+\end{lstlisting}
+
+Advanced usage can include prefetch or asynchronous load instructions for overlapping memory transfer with computation. For instance, Ampere architecture introduced \texttt{cp.async} instructions to asynchronously copy from global to shared memory:
+
+\begin{lstlisting}[style=ptx]
+// Asynchronously copy 16 bytes from global to shared memory
+cp.async.ca.shared.global [%rd_shared], [%rd_global], 16;
+\end{lstlisting}
+
+Such features can greatly improve performance in memory-bound kernels but may require specific hardware support.
+

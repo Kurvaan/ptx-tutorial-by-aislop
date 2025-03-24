@@ -1,0 +1,27 @@
+\subsubsection{Using ptxas}
+
+To compile PTX to a cubin (CUDA binary), use:
+
+\begin{lstlisting}[language=bash]
+ptxas -arch=sm_80 -O3 myKernel.ptx -o myKernel.cubin
+\end{lstlisting}
+
+This command assembles the PTX file for compute capability 8.0 (Ampere) with optimization level 3. The output is a binary file that can be loaded by the CUDA driver.
+
+Adding the \texttt{-v} (verbose) flag provides useful information about resource usage:
+
+\begin{lstlisting}[language=bash]
+ptxas -v -arch=sm_80 myKernel.ptx -o myKernel.cubin
+\end{lstlisting}
+
+This might output something like:
+\begin{lstlisting}
+ptxas info : Used 32 registers, 0 bytes spill stores, 0 bytes spill loads, 48 bytes shared memory, 136 bytes cmem[0]
+\end{lstlisting}
+
+This information is valuable for performance tuning as it shows how many registers per thread your kernel uses, whether any register spills occurred (which hurt performance), and shared memory usage.
+
+\opttip{
+Always watch for register spills in the \texttt{ptxas} output. If you see "spill stores/loads" > 0, it means the kernel ran out of registers and had to use slower local memory. Try to restructure your code to reduce register pressure if this happens.
+}
+

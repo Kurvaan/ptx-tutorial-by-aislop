@@ -1,0 +1,30 @@
+\subsubsection{Shared Memory and Register Declarations}
+
+At the start of the PTX kernel, we declare shared memory for the A and B tiles, and registers for computation:
+
+\begin{lstlisting}[style=ptx]
+.visible .entry matMulTiled(
+    .param .u64 A_ptr,    // pointer to matrix A
+    .param .u64 B_ptr,    // pointer to matrix B
+    .param .u64 C_ptr,    // pointer to output matrix C
+    .param .u32 N_val     // matrix dimension
+) {
+    // Register declarations
+    .reg .pred  %p<2>;              // Predicate registers
+    .reg .f32   %f_acc;             // Accumulator for result
+    .reg .f32   %f_a, %f_b;         // Registers for A and B elements
+    .reg .u32   %r_row, %r_col;     // Row and column indices
+    .reg .u32   %r_tid_x, %r_tid_y; // Thread indices
+    .reg .u32   %r_bx, %r_by;       // Block indices
+    .reg .u32   %r_N, %r_k, %r_t;   // Loop counters and matrix size
+    .reg .u64   %rd_A, %rd_B, %rd_C; // Base pointers
+    .reg .u64   %rd_Aaddr, %rd_Baddr, %rd_Caddr; // Computed addresses
+    
+    // Shared memory for tiles (16x16 tiles of f32 values)
+    .shared .align 4 .b32 shmemA[16*16];   // 256 floats for A sub-matrix
+    .shared .align 4 .b32 shmemB[16*16];   // 256 floats for B sub-matrix
+    
+    // ... (kernel code follows)
+}
+\end{lstlisting}
+

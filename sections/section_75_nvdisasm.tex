@@ -1,0 +1,10 @@
+\subsubsection{nvdisasm}
+
+For more detailed analysis of cubin files, `nvdisasm` provides control flow graphs and other information:
+
+\begin{lstlisting}[language=bash]
+nvdisasm -c -g mykernel.cubin
+\end{lstlisting}
+
+The `-c` flag adds comments, while `-g` generates a control flow graph, making it easier to understand the structure of complex kernels.
+

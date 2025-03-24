@@ -1,0 +1,28 @@
+\subsection{Conceptual Mapping}
+
+The following table summarizes the correspondence between CUDA C++ constructs and their PTX counterparts:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Concept} & \textbf{CUDA C++} & \textbf{PTX} \\
+\midrule
+Kernel Definition & \_\_global\_\_ void kernel(...) & .visible .entry kernel(...) \\
+Thread Index & threadIdx.x & \%tid.x (special register) \\
+Block Index & blockIdx.x & \%ctaid.x (special register) \\
+Block Dimension & blockDim.x & \%ntid.x (special register) \\
+Grid Dimension & gridDim.x & \%nctaid.x (special register) \\
+Global Memory & float *data & ld.global.f32 / st.global.f32 \\
+Shared Memory & \_\_shared\_\_ float sharedData[N] & .shared .b32 sharedData[N] \\
+Synchronization & \_\_syncthreads() & bar.sync 0 \\
+If Statement & if (cond) \{...\} & setp.op %p, ...; @%p ... \\
+Loop & for (int i=0; i<n; i++) & (labels and branches) \\
+Warp Functions & \_\_shfl\_sync, \_\_ballot\_sync & shfl.sync, vote.sync \\
+Math Functions & sqrtf(), fabs() & sqrt.rn.f32, abs.f32 \\
+\bottomrule
+\end{tabular}
+\caption{Mapping between CUDA C++ and PTX constructs}
+\label{tab:mapping}
+\end{table}
+

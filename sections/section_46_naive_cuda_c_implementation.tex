@@ -1,0 +1,41 @@
+\subsection{Naive CUDA C++ Implementation}
+
+First, let's look at a simple CUDA C++ implementation where each thread computes one element of the output matrix:
+
+\begin{lstlisting}[language=C++]
+__global__ void matMul(const float* A, const float* B, float* C, int N) {
+    // Calculate row and column indices for this thread
+    int row = blockIdx.y * blockDim.y + threadIdx.y;
+    int col = blockIdx.x * blockDim.x + threadIdx.x;
+    
+    // Check if within bounds
+    if (row < N && col < N) {
+        float sum = 0.0f;
+        
+        // Compute dot product of row from A and column from B
+        for (int k = 0; k < N; ++k) {
+            sum += A[row * N + k] * B[k * N + col];
+        }
+        
+        // Store result
+        C[row * N + col] = sum;
+    }
+}
+\end{lstlisting}
+
+This kernel is conceptually simple: each thread (identified by its row and column) computes the dot product of the corresponding row from A and column from B.
+
+However, the performance of this naive approach is poor for large matrices because:
+
+\begin{itemize}
+    \item Each thread accesses global memory N times for A and N times for B, with no data reuse between threads.
+    
+    \item The memory access pattern for matrix B is not coalesced (threads in a warp access non-consecutive elements), leading to inefficient memory transactions.
+    
+    \item There's no exploitation of the memory hierarchy to reduce global memory traffic.
+\end{itemize}
+
+\opttip{
+A key optimization principle in GPU programming is to minimize global memory accesses by reusing data through shared memory or registers. This is especially important for matrix multiplication, where each element of the input matrices is used multiple times.
+}
+

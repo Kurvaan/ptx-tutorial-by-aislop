@@ -1,0 +1,63 @@
+\subsubsection{The PTX Kernel}
+
+Here's a complete PTX file (\texttt{vecAdd.ptx}) for vector addition:
+
+\begin{lstlisting}[style=ptx]
+.version 7.0
+.target sm_80
+.address_size 64
+
+.visible .entry vecAdd(
+    .param .u64 A_ptr,    // pointer to input vector A
+    .param .u64 B_ptr,    // pointer to input vector B
+    .param .u64 C_ptr,    // pointer to output vector C
+    .param .u32 N         // vector length
+) {
+    // Register declarations
+    .reg .pred %p;
+    .reg .b32 %r<5>;      // For integer calculations
+    .reg .b64 %rd<8>;     // For pointer arithmetic
+    .reg .f32 %f<3>;      // For floating-point data
+    
+    // Load kernel parameters
+    ld.param.u64 %rd1, [A_ptr];
+    ld.param.u64 %rd2, [B_ptr];
+    ld.param.u64 %rd3, [C_ptr];
+    ld.param.u32 %r1, [N];
+    
+    // Calculate global thread index
+    mov.u32 %r2, %ctaid.x;   // blockIdx.x
+    mov.u32 %r3, %ntid.x;    // blockDim.x
+    mov.u32 %r4, %tid.x;     // threadIdx.x
+    mad.lo.s32 %r0, %r2, %r3, %r4;  // threadIdx = blockIdx.x * blockDim.x + threadIdx.x
+    
+    // Check if we're within bounds
+    setp.ge.s32 %p, %r0, %r1;  // threadIdx >= N?
+    @%p bra END;               // If so, exit
+    
+    // Calculate memory addresses (vector element = threadIdx * sizeof(float))
+    cvta.to.global.u64 %rd4, %rd1;  // Get actual global address for A
+    cvta.to.global.u64 %rd5, %rd2;  // Get actual global address for B
+    cvta.to.global.u64 %rd6, %rd3;  // Get actual global address for C
+    
+    mul.wide.s32 %rd7, %r0, 4;   // Offset = threadIdx * 4 bytes
+    
+    // Load A[threadIdx] and B[threadIdx]
+    add.s64 %rd0, %rd4, %rd7;    // Address of A[threadIdx]
+    ld.global.f32 %f0, [%rd0];
+    
+    add.s64 %rd0, %rd5, %rd7;    // Address of B[threadIdx]
+    ld.global.f32 %f1, [%rd0];
+    
+    // Compute C[threadIdx] = A[threadIdx] + B[threadIdx]
+    add.f32 %f2, %f0, %f1;
+    
+    // Store result to C[threadIdx]
+    add.s64 %rd0, %rd6, %rd7;    // Address of C[threadIdx]
+    st.global.f32 [%rd0], %f2;
+    
+END:
+    ret;
+}
+\end{lstlisting}
+

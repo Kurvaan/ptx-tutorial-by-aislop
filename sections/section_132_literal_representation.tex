@@ -1,0 +1,15 @@
+\subsubsection{Literal Representation}
+
+In PTX, constants like floating-point literals use hexadecimal representation:
+
+\begin{lstlisting}[style=ptx]
+// Common floating-point literals
+mov.f32 %f1, 0f00000000;    // 0.0f
+mov.f32 %f2, 0f3f800000;    // 1.0f
+mov.f32 %f3, 0f40000000;    // 2.0f
+mov.f32 %f4, 0f40800000;    // 4.0f
+mov.f32 %f5, 0f3f000000;    // 0.5f
+\end{lstlisting}
+
+This can make code harder to read. Consider adding comments for clarity or using shared constants.
+

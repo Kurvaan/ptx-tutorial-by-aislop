@@ -1,0 +1,18 @@
+\subsubsection{Register Usage Considerations}
+
+All registers declared in a PTX kernel are thread-local—each thread gets its own set. This has important performance implications:
+
+\begin{itemize}
+    \item GPUs have a finite register file per Streaming Multiprocessor (SM). For example, a V100 GPU has 65,536 registers per SM \citep{cornell_gpu_memory}.
+    
+    \item If each thread uses many registers, fewer threads can run concurrently on an SM, potentially reducing occupancy (the ratio of active warps to maximum possible warps).
+    
+    \item Lower occupancy can mean less ability to hide memory latency through thread switching, affecting performance.
+\end{itemize}
+
+When writing PTX, it's important to balance register usage against occupancy and other concerns. The \texttt{ptxas -v} output tells you how many registers your kernel uses per thread.
+
+\opttip{
+You can declare more registers than you actually need without penalty; the compiler will eliminate unused ones. What matters is how many are simultaneously "alive" in your code. Reusing registers for different purposes at different points in your kernel can help reduce register pressure.
+}
+

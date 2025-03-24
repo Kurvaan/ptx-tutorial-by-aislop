@@ -1,0 +1,20 @@
+\subsubsection{Memory Performance Considerations}
+
+The memory hierarchy in GPUs has significant performance implications:
+
+\begin{itemize}
+    \item \textbf{Global memory} is large but has high latency (hundreds of cycles for uncached access). Coalesced access (where threads in a warp access contiguous addresses) is crucial for performance.
+    
+    \item \textbf{Shared memory} is much faster (similar to registers if there are no bank conflicts) but limited in size (e.g., tens of KB per SM). It's key for data reuse among threads in a block.
+    
+    \item \textbf{Constant memory} is cached and optimized for situations where all threads read the same value (broadcast).
+    
+    \item \textbf{Local memory} uses the same physical storage as global memory and should be avoided if possible, as it indicates register spilling.
+\end{itemize}
+
+For deep learning kernels, which often process large arrays of data, effective use of the memory hierarchy can make an enormous difference in performance. A common pattern is to stage data in shared memory to reuse it and avoid redundant global memory accesses.
+
+\technote{
+On modern GPUs, a global memory load that isn't in cache can take hundreds of clock cycles, while shared memory access can be as fast as register access under optimal conditions \citep{deepseek_ptx}.
+}
+

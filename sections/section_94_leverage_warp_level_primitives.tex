@@ -1,0 +1,17 @@
+\subsubsection{Leverage Warp-Level Primitives}
+
+Modern PTX includes powerful warp-level operations:
+
+\begin{lstlisting}[style=ptx]
+// Shuffle: Exchange register values within a warp
+shfl.sync.idx.b32 %r2, %r1, %r_src_lane, 0x1f;
+
+// Vote: Thread cooperation within a warp
+vote.sync.all.pred %p1, %p0, 0xffffffff;
+
+// Match: Find lanes with matching values
+match.sync.all.b32 %r2, %r1, 0xffffffff;
+\end{lstlisting}
+
+These operations enable efficient communication without using shared memory, which is valuable for algorithms like reductions, scans, and prefix sums.
+

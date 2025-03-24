@@ -1,0 +1,18 @@
+\subsection{Tensor Cores in Deep Learning Workloads}
+
+The dramatic performance improvement offered by Tensor Cores makes them essential for high-performance deep learning. Common applications include:
+
+\begin{itemize}
+    \item \textbf{General Matrix Multiplication (GEMM)}: The core operation in fully-connected layers, self-attention mechanisms, and many other neural network components.
+    
+    \item \textbf{Convolutions}: Can be implemented as matrix multiplications using techniques like im2col, allowing them to benefit from Tensor Cores.
+    
+    \item \textbf{Custom fused operations}: Combining matrix multiplication with other operations (activation functions, dropout, etc.) for better performance.
+\end{itemize}
+
+By writing custom PTX kernels that leverage Tensor Cores, developers can create highly optimized implementations of specific operations needed for their neural network architectures, potentially exceeding the performance of general-purpose libraries for specialized cases.
+
+\technote{
+While writing Tensor Core kernels by hand is complex, libraries like CUTLASS (CUDA Templates for Linear Algebra Subroutines) provide building blocks that help developers create custom high-performance kernels without managing every detail manually. CUTLASS is often a good middle ground between using standard libraries and writing everything in PTX.
+}
+

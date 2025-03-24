@@ -1,0 +1,47 @@
+\subsubsection{Using the CUDA Driver API}
+
+The CUDA Driver API allows loading PTX or cubin files at runtime and launching the kernels within them:
+
+\begin{lstlisting}[language=C++]
+#include <cuda.h>
+
+int main() {
+    // Initialize CUDA
+    cuInit(0);
+    CUdevice device;
+    CUcontext context;
+    cuDeviceGet(&device, 0);
+    cuCtxCreate(&context, 0, device);
+    
+    // Load the PTX module
+    CUmodule module;
+    cuModuleLoad(&module, "myKernel.cubin");  // or load PTX directly
+    
+    // Get function handle
+    CUfunction kernel;
+    cuModuleGetFunction(&kernel, module, "myKernel");
+    
+    // Set up kernel parameters
+    void* args[] = { &d_input, &d_output, &size };
+    
+    // Launch the kernel
+    cuLaunchKernel(
+        kernel,          // kernel function
+        gridDimX, gridDimY, gridDimZ,  // grid dimensions
+        blockDimX, blockDimY, blockDimZ,  // block dimensions
+        sharedMemBytes,  // shared memory size
+        stream,          // CUDA stream
+        args,            // kernel arguments
+        NULL             // extra options
+    );
+    
+    // Clean up
+    cuModuleUnload(module);
+    cuCtxDestroy(context);
+    
+    return 0;
+}
+\end{lstlisting}
+
+This approach gives you complete control over loading and executing PTX code, making it suitable for applications that dynamically select or generate kernels \citep{llvm_nvptx_guide}.
+

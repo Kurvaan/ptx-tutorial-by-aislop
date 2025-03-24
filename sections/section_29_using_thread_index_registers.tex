@@ -1,0 +1,15 @@
+\subsubsection{Using Thread Index Registers}
+
+These special registers are read-only. To use their values in calculations, you typically move them into general-purpose registers first:
+
+\begin{lstlisting}[style=ptx]
+mov.u32 %r1, %tid.x;    // Copy threadIdx.x to register r1
+mov.u32 %r2, %ntid.x;   // Copy blockDim.x to register r2
+mov.u32 %r3, %ctaid.x;  // Copy blockIdx.x to register r3
+
+// Calculate global thread index: r4 = blockIdx.x * blockDim.x + threadIdx.x
+mad.lo.s32 %r4, %r3, %r2, %r1;
+\end{lstlisting}
+
+Here, we use the \texttt{mov.u32} instruction to copy the special register values into general registers, and then \texttt{mad.lo.s32} (multiply-add) to compute the global thread index.
+

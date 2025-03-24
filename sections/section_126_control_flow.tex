@@ -1,0 +1,76 @@
+\subsection{Control Flow}
+
+Control flow in PTX is implemented with predicates and branches, rather than structured statements:
+
+\begin{lstlisting}[language=C++]
+// CUDA C++
+if (value > 0.0f) {
+    result = value;
+} else {
+    result = 0.0f;
+}
+\end{lstlisting}
+
+\begin{lstlisting}[style=ptx]
+// PTX
+setp.gt.f32 %p1, %f_value, 0f00000000;  // Compare value > 0.0
+@%p1 mov.f32 %f_result, %f_value;       // If true, result = value
+@!%p1 mov.f32 %f_result, 0f00000000;    // If false, result = 0.0
+\end{lstlisting}
+
+For more complex control flow, PTX uses explicit branches:
+
+\begin{lstlisting}[language=C++]
+// CUDA C++
+if (value > 10.0f) {
+    // Complex operation 1
+} else {
+    // Complex operation 2
+}
+\end{lstlisting}
+
+\begin{lstlisting}[style=ptx]
+// PTX
+setp.gt.f32 %p1, %f_value, 0f41200000;  // Compare value > 10.0
+@!%p1 bra ELSE_BRANCH;                  // If not true, branch to ELSE
+
+// Complex operation 1
+// ...
+
+bra END_IF;                             // Skip the else block
+
+ELSE_BRANCH:
+// Complex operation 2
+// ...
+
+END_IF:
+// Continue with code after if-else
+\end{lstlisting}
+
+Loops follow a similar pattern:
+
+\begin{lstlisting}[language=C++]
+// CUDA C++
+for (int i = 0; i < 10; i++) {
+    // Loop body
+}
+\end{lstlisting}
+
+\begin{lstlisting}[style=ptx]
+// PTX
+mov.u32 %r_i, 0;                    // Initialize i = 0
+
+LOOP_START:
+setp.ge.u32 %p1, %r_i, 10;          // Check if i >= 10
+@%p1 bra LOOP_END;                  // If true, exit loop
+
+// Loop body
+// ...
+
+add.u32 %r_i, %r_i, 1;              // Increment i
+bra LOOP_START;                      // Go back to start
+
+LOOP_END:
+// Continue with code after loop
+\end{lstlisting}
+

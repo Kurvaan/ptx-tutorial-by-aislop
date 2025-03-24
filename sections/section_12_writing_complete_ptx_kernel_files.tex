@@ -1,0 +1,28 @@
+\subsubsection{Writing Complete PTX Kernel Files}
+
+For more extensive control, you can write entire kernels in PTX. This involves creating a \texttt{.ptx} file containing the complete kernel implementation:
+
+\begin{lstlisting}[style=ptx]
+.version 8.0
+.target sm_80
+.address_size 64
+
+.visible .entry myKernel(
+    .param .u64 param0,  // pointer parameter
+    .param .u64 param1   // another pointer
+) {
+    // PTX instructions for the kernel body
+    // ...
+    ret;
+}
+\end{lstlisting}
+
+A PTX source file typically starts with directives specifying:
+\begin{itemize}
+    \item The PTX version (\texttt{.version})
+    \item Target architecture (\texttt{.target})
+    \item Address size (\texttt{.address\_size})
+\end{itemize}
+
+Then it declares one or more kernel functions using \texttt{.visible .entry} (for kernels callable from host code) or \texttt{.func} (for device functions callable from other device code).
+

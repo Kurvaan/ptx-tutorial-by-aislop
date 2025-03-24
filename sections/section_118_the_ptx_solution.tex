@@ -1,0 +1,32 @@
+\subsubsection{The PTX Solution}
+
+Our custom PTX layer normalization kernel uses warp-level operations to compute statistics in a single pass:
+
+\begin{lstlisting}[style=ptx]
+// First perform a warp-level parallel reduction to compute sum and sum-of-squares
+// ... (reduction code similar to earlier softmax example)
+
+// Compute mean and variance
+div.f32 %f_mean, %f_sum, %f_n;
+div.f32 %f_var, %f_sumsq, %f_n;
+sub.f32 %f_var, %f_var, %f_mean*%f_mean;  // var = E(x²) - E(x)²
+
+// Add epsilon for numerical stability
+add.f32 %f_var, %f_var, 0f3727c5ac;  // Add epsilon (1e-5)
+
+// Compute normalization factor
+sqrt.approx.f32 %f_stddev, %f_var;
+rcp.approx.f32 %f_inv_stddev, %f_stddev;  // 1/sqrt(var + epsilon)
+
+// Apply normalization and scaling to each element in parallel
+// For each element in this thread's assigned range:
+sub.f32 %f_norm, %f_val, %f_mean;
+mul.f32 %f_norm, %f_norm, %f_inv_stddev;
+// Apply gamma (scale) and beta (shift) parameters
+ld.global.f32 %f_gamma, [%rd_gamma + %r_idx*4];
+ld.global.f32 %f_beta, [%rd_beta + %r_idx*4];
+fma.rn.f32 %f_result, %f_norm, %f_gamma, %f_beta;
+// Store result
+st.global.f32 [%rd_output + %r_idx*4], %f_result;
+\end{lstlisting}
+

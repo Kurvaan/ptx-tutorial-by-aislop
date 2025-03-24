@@ -1,0 +1,14 @@
+\subsubsection{Register Declaration}
+
+Registers are declared using the \texttt{.reg} directive, specifying a type and either a name or a range:
+
+\begin{lstlisting}[style=ptx]
+.reg .f32  %f<4>;   // 4 float registers: %f0, %f1, %f2, %f3
+.reg .pred %p<2>;   // 2 predicate (boolean) registers: %p0, %p1
+.reg .b32  %rTemp;  // one 32-bit register named rTemp
+\end{lstlisting}
+
+The first line creates four 32-bit floating-point registers named \texttt{\%f0} through \texttt{\%f3}. The second creates two predicate registers (used for conditional execution). The third creates a single 32-bit register with a custom name.
+
+When using registers in instructions, they are prefixed with \texttt{\%} (e.g., \texttt{\%f0}, \texttt{\%rTemp}).
+

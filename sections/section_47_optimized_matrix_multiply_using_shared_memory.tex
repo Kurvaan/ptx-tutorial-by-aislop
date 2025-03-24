@@ -1,0 +1,74 @@
+\subsection{Optimized Matrix Multiply Using Shared Memory}
+
+A well-optimized matrix multiply on GPU uses tiling with shared memory. The basic idea is:
+
+\begin{enumerate}
+    \item Divide the computation into tiles (submatrices).
+    
+    \item Each thread block loads tiles of A and B into shared memory.
+    
+    \item Threads in the block compute partial sums using the data in shared memory.
+    
+    \item The process repeats for all tiles needed to compute the final result.
+\end{enumerate}
+
+This approach dramatically reduces global memory traffic because each element is loaded once from global memory into shared memory and then reused by multiple threads.
+
+Here's how this would look in CUDA C++:
+
+\begin{lstlisting}[language=C++]
+#define TILE_SIZE 16
+
+__global__ void matMulTiled(const float* A, const float* B, float* C, int N) {
+    // Shared memory for tiles
+    __shared__ float As[TILE_SIZE][TILE_SIZE];
+    __shared__ float Bs[TILE_SIZE][TILE_SIZE];
+    
+    // Calculate row and column indices
+    int row = blockIdx.y * TILE_SIZE + threadIdx.y;
+    int col = blockIdx.x * TILE_SIZE + threadIdx.x;
+    
+    float sum = 0.0f;
+    
+    // Loop over tiles
+    for (int t = 0; t < (N + TILE_SIZE - 1) / TILE_SIZE; ++t) {
+        // Load tiles into shared memory
+        if (row < N && t * TILE_SIZE + threadIdx.x < N)
+            As[threadIdx.y][threadIdx.x] = A[row * N + t * TILE_SIZE + threadIdx.x];
+        else
+            As[threadIdx.y][threadIdx.x] = 0.0f;
+            
+        if (col < N && t * TILE_SIZE + threadIdx.y < N)
+            Bs[threadIdx.y][threadIdx.x] = B[(t * TILE_SIZE + threadIdx.y) * N + col];
+        else
+            Bs[threadIdx.y][threadIdx.x] = 0.0f;
+        
+        // Synchronize to ensure tiles are loaded
+        __syncthreads();
+        
+        // Compute partial sum for this tile
+        for (int k = 0; k < TILE_SIZE; ++k) {
+            sum += As[threadIdx.y][k] * Bs[k][threadIdx.x];
+        }
+        
+        // Synchronize before loading next tiles
+        __syncthreads();
+    }
+    
+    // Store result
+    if (row < N && col < N) {
+        C[row * N + col] = sum;
+    }
+}
+\end{lstlisting}
+
+This tiled approach significantly improves performance by:
+
+\begin{itemize}
+    \item Reducing global memory accesses: Each element is loaded once from global memory and reused multiple times.
+    
+    \item Improving memory coalescing: When threads in a warp load data into shared memory, they access consecutive memory addresses.
+    
+    \item Exploiting data locality: Once data is in shared memory, access is much faster than global memory.
+\end{itemize}
+

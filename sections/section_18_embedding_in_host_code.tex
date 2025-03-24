@@ -1,0 +1,10 @@
+\subsubsection{Embedding in Host Code}
+
+For a more integrated approach, you can embed PTX or cubin into your application as a resource and link it with your host code. NVIDIA provides tools like \texttt{fatbinary} to create object files containing both host code and device code.
+
+This is more complex but can be managed with build systems or CUDA's own mechanisms. The CUDA runtime API can then find and load these embedded kernels automatically.
+
+\technote{
+The CUDA samples (e.g., \texttt{vectorAddDrv}) demonstrate loading a PTX module and launching a kernel via the Driver API. These examples are valuable references for understanding the mechanics of PTX execution \citep{llvm_nvptx_guide}.
+}
+

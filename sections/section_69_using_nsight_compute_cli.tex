@@ -1,0 +1,15 @@
+\subsubsection{Using Nsight Compute CLI}
+
+The command-line interface version of Nsight Compute (nv-nsight-cu-cli) is convenient for quick profiling:
+
+\begin{lstlisting}[language=bash]
+nv-nsight-cu-cli --metrics gpc__cycles_elapsed,sm__cycles_elapsed \
+                 ./myprogram
+\end{lstlisting}
+
+This collects specific metrics from all kernels in the application. You can also target a specific kernel:
+
+\begin{lstlisting}[language=bash]
+nv-nsight-cu-cli --kernel-id ::myKernel:1 ./myprogram
+\end{lstlisting}
+

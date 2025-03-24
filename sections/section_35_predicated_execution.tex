@@ -1,0 +1,12 @@
+\subsubsection{Predicated Execution}
+
+For short conditional code, PTX often uses predication instead of branches to avoid warp divergence:
+
+\begin{lstlisting}[style=ptx]
+setp.lt.f32 %p1, %f1, 0.0;  // p1 = (f1 < 0.0)
+@%p1 mov.f32 %f1, 0.0;      // If p1, then f1 = 0.0
+                            // (implements ReLU: max(f1, 0))
+\end{lstlisting}
+
+This conditional execution using \texttt{@\%p} can be more efficient than branching for short sequences, as it avoids potential warp divergence (where threads in a warp take different execution paths).
+

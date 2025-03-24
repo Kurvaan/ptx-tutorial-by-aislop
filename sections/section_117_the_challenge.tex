@@ -1,0 +1,11 @@
+\subsubsection{The Challenge}
+
+Layer normalization is a critical component in modern neural networks, especially transformers. The standard implementation involves multiple passes:
+\begin{enumerate}
+    \item Compute mean across features
+    \item Compute variance across features
+    \item Normalize and scale each feature
+\end{enumerate}
+
+This requires multiple global memory reads and writes, creating a bottleneck.
+

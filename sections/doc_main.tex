@@ -1,0 +1,274 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{multicol}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{natbib}
+\usepackage{lipsum}
+\usepackage{mdframed}
+
+% Define code listing style
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  commentstyle=\color{green!50!black},
+  keywordstyle=\color{blue},
+  stringstyle=\color{red},
+  numberstyle=\tiny\color{gray},
+  numbers=left,
+  stepnumber=1,
+  numbersep=10pt,
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  frame=single,
+  tabsize=2,
+  captionpos=b,
+  breakatwhitespace=false,
+  breakautoindent=true,
+  escapeinside={(*@}{@*)},
+  prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+  framesep=2pt,
+  framexleftmargin=5pt,
+  framexrightmargin=5pt,
+  framextopmargin=3pt,
+  framexbottommargin=3pt,
+  aboveskip={\baselineskip},
+  belowskip={\baselineskip},
+  xleftmargin=15pt,
+  xrightmargin=15pt
+}
+
+% Define custom PTX listing style
+\lstdefinestyle{ptx}{
+  language=C
+}
+
+
+% Define a new command for notes
+\newcommand{\technote}[1]{%
+  \begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Technical Note]
+    #1
+  \end{tcolorbox}
+}
+
+% Define a new command for optimization tips
+\newcommand{\opttip}[1]{
+  \begin{tcolorbox}[colback=green!5!white,colframe=green!75!black,title=Optimization Tip]
+    #1
+  \end{tcolorbox}
+}
+
+% Define a new command for warning notes
+\newcommand{\warning}[1]{
+  \begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Warning]
+    #1
+  \end{tcolorbox}
+}
+
+% Set up headers and footers
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Low-Level CUDA Optimization with PTX}
+\fancyhead[R]{Page \thepage}
+\fancyfoot[C]{Deep Learning-Oriented Tutorial}
+
+% Set up section formatting
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{blue!70!black}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{blue!50!black}}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{blue!30!black}}
+  {\thesubsubsection}{1em}{}
+
+% Title settings
+\title{\LARGE \textbf{Low-Level CUDA Optimization with PTX:\\A Deep Learning-Oriented Tutorial}}
+\author{Advanced GPU Programming Guide}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+This tutorial provides a comprehensive introduction to Parallel Thread Execution (PTX), NVIDIA's low-level assembly-like language for GPU programming. Designed for developers familiar with CUDA C/C++ who want to achieve peak performance in deep learning workloads, this guide walks through the fundamentals of PTX, how to write and optimize PTX code, and how to leverage GPU hardware features like Tensor Cores. We'll explore practical examples, case studies, and performance optimization techniques specific to deep learning applications. By understanding PTX, developers can gain deeper insights into GPU execution and unlock performance optimizations beyond what high-level languages provide.
+\end{abstract}
+
+\vspace{1cm}
+\renewcommand{\contentsname}{\color{blue!70!black}Table of Contents}
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+
+\input{section_1_introduction_to_ptx_and_the_cuda_toolchain.tex}
+\input{section_2_what_is_ptx.tex}
+\input{section_3_the_role_of_ptx_in_the_cuda_toolchain.tex}
+\input{section_4_why_learn_ptx_for_deep_learning.tex}
+\input{section_5_inspecting_ptx_from_cuda_cc_code.tex}
+\input{section_6_generating_ptx_from_cuda_source_code.tex}
+\input{section_7_extracting_ptx_from_compiled_code.tex}
+\input{section_8_example_vector_addition_kernel.tex}
+\input{section_9_writing_and_compiling_ptx_directly.tex}
+\input{section_10_approaches_to_writing_ptx.tex}
+\input{section_11_inline_ptx_assembly_in_cuda_cc.tex}
+\input{section_12_writing_complete_ptx_kernel_files.tex}
+\input{section_13_using_nvrtc_runtime_compilation.tex}
+\input{section_14_compiling_ptx_code.tex}
+\input{section_15_using_ptxas.tex}
+\input{section_16_running_ptx_kernels.tex}
+\input{section_17_using_the_cuda_driver_api.tex}
+\input{section_18_embedding_in_host_code.tex}
+\input{section_19_ptx_syntax_and_key_constructs.tex}
+\input{section_20_module_and_entry_point_directives.tex}
+\input{section_21_version_and_target_directives.tex}
+\input{section_22_kernel_entry_points.tex}
+\input{section_23_registers_and_type_qualifiers.tex}
+\input{section_24_register_declaration.tex}
+\input{section_25_register_types.tex}
+\input{section_26_register_usage_considerations.tex}
+\input{section_27_thread_indexes_and_special_registers.tex}
+\input{section_28_common_thread_index_registers.tex}
+\input{section_29_using_thread_index_registers.tex}
+\input{section_30_additional_special_registers.tex}
+\input{section_31_arithmetic_and_control_flow_instructions.tex}
+\input{section_32_basic_arithmetic_instructions.tex}
+\input{section_33_vector_operations.tex}
+\input{section_34_control_flow_predicates_and_branches.tex}
+\input{section_35_predicated_execution.tex}
+\input{section_36_implementing_loops.tex}
+\input{section_37_memory_spaces_and_instructions.tex}
+\input{section_38_memory_space_overview.tex}
+\input{section_39_memory_access_instructions.tex}
+\input{section_40_declaring_static_memory.tex}
+\input{section_41_memory_performance_considerations.tex}
+\input{section_42_memory_caching_and_control.tex}
+\input{section_43_synchronization.tex}
+\input{section_44_hands_on_example_ptx_vs_cuda_c_for_a_matrix_multiply_kernel.tex}
+\input{section_45_the_matrix_multiplication_problem.tex}
+\input{section_46_naive_cuda_c_implementation.tex}
+\input{section_47_optimized_matrix_multiply_using_shared_memory.tex}
+\input{section_48_ptx_implementation_of_tiled_matrix_multiply.tex}
+\input{section_49_shared_memory_and_register_declarations.tex}
+\input{section_50_loading_parameters_and_computing_thread_indices.tex}
+\input{section_51_initializing_the_accumulator.tex}
+\input{section_52_tile_loop_implementation.tex}
+\input{section_53_optimizing_the_dot_product_computation.tex}
+\input{section_54_performance_considerations_and_comparison.tex}
+\input{section_55_using_tensor_core_instructions_mma_in_ptx.tex}
+\input{section_56_introduction_to_tensor_cores.tex}
+\input{section_57_mma_instructions_in_ptx.tex}
+\input{section_58_mma_instruction_syntax.tex}
+\input{section_59_warp_level_collaboration.tex}
+\input{section_60_a_simplified_tensor_core_kernel_example.tex}
+\input{section_61_loading_matrix_fragments.tex}
+\input{section_62_performance_considerations_for_tensor_core_usage.tex}
+\input{section_63_tensor_cores_in_deep_learning_workloads.tex}
+\input{section_64_tools_and_workflow_for_debugging_and_profiling_ptx_on_linux.tex}
+\input{section_65_cuda_debugger_cuda_gdb.tex}
+\input{section_66_basic_debugging_with_cuda_gdb.tex}
+\input{section_67_ptx_level_debugging.tex}
+\input{section_68_nvidia_nsight_compute.tex}
+\input{section_69_using_nsight_compute_cli.tex}
+\input{section_70_interactive_profiling_with_the_gui.tex}
+\input{section_71_ptxsass_correlation.tex}
+\input{section_72_nvidia_nsight_systems.tex}
+\input{section_73_binary_utilities_cuobjdump_and_nvdisasm.tex}
+\input{section_74_cuobjdump.tex}
+\input{section_75_nvdisasm.tex}
+\input{section_76_cuda_compute_sanitizer.tex}
+\input{section_77_a_practical_debugging_and_optimization_workflow.tex}
+\input{section_78_best_practices_for_writing_performant_ptx.tex}
+\input{section_79_start_with_a_reference_implementation.tex}
+\input{section_80_memory_access_optimization.tex}
+\input{section_81_global_memory_coalescing.tex}
+\input{section_82_use_shared_memory_for_data_reuse.tex}
+\input{section_83_minimize_bank_conflicts_in_shared_memory.tex}
+\input{section_84_register_usage_optimization.tex}
+\input{section_85_monitor_register_count.tex}
+\input{section_86_avoid_register_spilling.tex}
+\input{section_87_register_pressure_vs_recomputation.tex}
+\input{section_88_instruction_level_optimization.tex}
+\input{section_89_exploit_instruction_level_parallelism_ilp.tex}
+\input{section_90_utilize_special_math_instructions.tex}
+\input{section_91_loop_unrolling.tex}
+\input{section_92_warp_level_optimization.tex}
+\input{section_93_minimize_warp_divergence.tex}
+\input{section_94_leverage_warp_level_primitives.tex}
+\input{section_95_memory_hierarchy_management.tex}
+\input{section_96_use_texture_memory_for_read_only_data_with_spatial_locality.tex}
+\input{section_97_leverage_l2_cache_with_appropriate_hints.tex}
+\input{section_98_consider_asynchronous_memory_operations.tex}
+\input{section_99_architecture_specific_optimizations.tex}
+\input{section_100_tensor_cores.tex}
+\input{section_101_newer_architecture_features.tex}
+\input{section_102_practical_optimization_strategy.tex}
+\input{section_103_case_studies_ptx_optimization_for_deep_learning_kernels.tex}
+\input{section_104_case_study_1_fused_activation_functions.tex}
+\input{section_105_the_challenge.tex}
+\input{section_106_the_ptx_solution.tex}
+\input{section_107_performance_impact.tex}
+\input{section_108_case_study_2_custom_attention_mechanism.tex}
+\input{section_109_the_challenge.tex}
+\input{section_110_the_ptx_solution.tex}
+\input{section_111_performance_impact.tex}
+\input{section_112_case_study_3_quantized_tensor_core_operations.tex}
+\input{section_113_the_challenge.tex}
+\input{section_114_the_ptx_solution.tex}
+\input{section_115_performance_impact.tex}
+\input{section_116_case_study_4_custom_layer_normalization.tex}
+\input{section_117_the_challenge.tex}
+\input{section_118_the_ptx_solution.tex}
+\input{section_119_performance_impact.tex}
+\input{section_120_lessons_from_case_studies.tex}
+\input{section_121_transitioning_from_cuda_c_to_ptx.tex}
+\input{section_122_conceptual_mapping.tex}
+\input{section_123_thread_and_block_indexing.tex}
+\input{section_124_memory_access_and_address_calculation.tex}
+\input{section_125_shared_memory_usage.tex}
+\input{section_126_control_flow.tex}
+\input{section_127_predicated_execution_vs_branching.tex}
+\input{section_128_common_pitfalls_in_transition.tex}
+\input{section_129_register_management.tex}
+\input{section_130_memory_alignment.tex}
+\input{section_131_synchronization.tex}
+\input{section_132_literal_representation.tex}
+\input{section_133_the_transition_process.tex}
+\input{section_134_when_to_use_ptx_vs_cuda_c.tex}
+\input{section_135_practical_examples_with_complete_code.tex}
+\input{section_136_example_1_vector_addition_with_ptx.tex}
+\input{section_137_the_ptx_kernel.tex}
+\input{section_138_host_code_to_launch_the_ptx_kernel.tex}
+\input{section_139_compilation_and_execution.tex}
+\input{section_140_example_2_element_wise_relu_activation_with_inline_ptx.tex}
+\input{section_141_example_3_tensor_core_matrix_multiplication.tex}
+\input{section_142_ptx_kernel_for_tensor_core_matrix_multiplication.tex}
+\input{section_143_host_code_considerations.tex}
+\input{section_144_conclusion.tex}
+\input{section_145_key_takeaways.tex}
+\input{section_146_when_to_use_ptx.tex}
+\input{section_147_the_future_of_ptx_and_gpu_programming.tex}
+\input{section_148_final_thoughts.tex}
+
+\end{document}

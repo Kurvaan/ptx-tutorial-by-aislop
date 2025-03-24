@@ -1,0 +1,25 @@
+\subsubsection{Basic Debugging with cuda-gdb}
+
+To debug a CUDA application with cuda-gdb, you need to compile with debug information:
+
+\begin{lstlisting}[language=bash]
+nvcc -g -G myprogram.cu -o myprogram
+\end{lstlisting}
+
+The `-g` flag adds host code debug info, while `-G` adds device debug info. Then launch the debugger:
+
+\begin{lstlisting}[language=bash]
+cuda-gdb ./myprogram
+\end{lstlisting}
+
+Within cuda-gdb, you can set breakpoints in device code, inspect variables, and step through execution:
+
+\begin{lstlisting}[language=bash]
+(cuda-gdb) break mykernel
+(cuda-gdb) run
+(cuda-gdb) info cuda threads  # Show active CUDA threads
+(cuda-gdb) cuda thread 1,0,0  # Switch to specific thread (block 1, thread 0)
+(cuda-gdb) print variable     # Inspect a variable
+(cuda-gdb) step               # Execute next line
+\end{lstlisting}
+

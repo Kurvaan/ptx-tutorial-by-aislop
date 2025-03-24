@@ -1,0 +1,10 @@
+\subsubsection{Tensor Cores}
+
+As discussed in the previous section, Tensor Cores offer massive speedups for matrix operations. Ensure your workloads can leverage them when appropriate:
+
+\begin{itemize}
+    \item Use supported data types (typically FP16/BF16 input)
+    \item Ensure matrix dimensions are compatible with Tensor Core tile sizes
+    \item Use appropriate memory layouts for maximal throughput
+\end{itemize}
+

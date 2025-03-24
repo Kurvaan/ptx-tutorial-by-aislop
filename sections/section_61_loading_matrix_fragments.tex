@@ -1,0 +1,19 @@
+\subsection{Loading Matrix Fragments}
+
+A critical aspect of using Tensor Cores efficiently is properly loading the matrix fragments. This typically involves:
+
+\begin{enumerate}
+    \item Loading data from global memory into shared memory in a coalesced pattern
+    \item Organizing data in shared memory to match the fragment layout expected by Tensor Cores
+    \item Transferring data from shared memory to registers in the correct arrangement
+\end{enumerate}
+
+Starting with Ampere GPUs, PTX provides specialized instructions to help with this process, such as \texttt{ldmatrix}:
+
+\begin{lstlisting}[style=ptx]
+// Load a 16x8 F16 matrix fragment from shared memory
+ldmatrix.sync.aligned.m8n8.x4.shared.b16 {%A0,%A1,%A2,%A3}, [%sharedMemAddr];
+\end{lstlisting}
+
+This instruction loads a matrix fragment from shared memory directly into the registers, handling the complex distribution of elements among threads in the warp automatically.
+

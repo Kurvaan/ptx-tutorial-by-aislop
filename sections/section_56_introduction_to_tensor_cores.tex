@@ -1,0 +1,20 @@
+\subsection{Introduction to Tensor Cores}
+
+Tensor Cores are specialized matrix multiply-accumulate units designed to accelerate deep learning workloads. They provide hardware-accelerated matrix operations with significantly higher throughput than standard floating-point operations.
+
+Key characteristics of Tensor Cores include:
+
+\begin{itemize}
+    \item Perform matrix multiply-accumulate operations on small matrices (typically 4×4 or larger blocks)
+    \item Support various precision formats, primarily:
+    \begin{itemize}
+        \item FP16 (16-bit floating point) input with FP16 or FP32 accumulation
+        \item BF16 (brain floating point) in newer architectures
+        \item INT8/INT4 (8-bit/4-bit integer) for quantized operations
+        \item FP64 (64-bit floating point) in the latest architectures (Hopper)
+    \end{itemize}
+    \item Deliver significantly higher FLOPS compared to standard FP32 operations (e.g., 8× higher theoretical throughput for FP16 on Ampere)
+\end{itemize}
+
+In CUDA C++, Tensor Cores can be accessed through high-level APIs like cuBLAS or through the WMMA (Warp Matrix Multiply Accumulate) API. With PTX, we can directly issue the matrix multiply-accumulate instructions that utilize Tensor Cores.
+

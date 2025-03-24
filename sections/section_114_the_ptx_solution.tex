@@ -1,0 +1,32 @@
+\subsubsection{The PTX Solution}
+
+We implemented a custom PTX kernel for quantized matrix multiplication with the following features:
+\begin{enumerate}
+    \item Support for arbitrary scaling factors per channel
+    \item Custom dequantization during computation
+    \item Direct use of Tensor Core instructions for INT8 inputs with FP16 accumulators
+\end{enumerate}
+
+The key innovation was implementing per-channel scaling directly in the computation path:
+
+\begin{lstlisting}[style=ptx]
+// After loading quantized fragments and computing MMA
+// Apply custom per-output-channel scaling
+
+// Load scale factor for this output channel
+ld.global.f16 %h_scale, [%rd_scales + %r_channel*2];
+
+// Convert h_scale from f16 to f32
+cvt.f32.f16 %f_scale, %h_scale;
+
+// Apply scaling to each element in the output fragment
+mul.f32 %f_out0, %f_acc0, %f_scale;
+mul.f32 %f_out1, %f_acc1, %f_scale;
+// ... repeat for all output elements
+
+// Convert back to destination format if needed
+cvt.rn.f16.f32 %h_out0, %f_out0;
+cvt.rn.f16.f32 %h_out1, %f_out1;
+// ... repeat for all output elements
+\end{lstlisting}
+

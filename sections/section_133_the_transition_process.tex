@@ -1,0 +1,18 @@
+\subsection{The Transition Process}
+
+A methodical approach to transitioning from CUDA C++ to PTX includes:
+
+\begin{enumerate}
+    \item \textbf{Start with a working C++ implementation} as a reference for correctness
+    
+    \item \textbf{Extract the PTX} from the compiled C++ code using \texttt{nvcc -ptx}
+    
+    \item \textbf{Study the generated PTX} to understand how the compiler mapped your algorithm
+    
+    \item \textbf{Make incremental changes}, testing after each modification
+    
+    \item \textbf{Profile both versions} to verify that your hand-tuned PTX actually improves performance
+\end{enumerate}
+
+This approach lets you learn from the compiler's decisions while gradually introducing your own optimizations.
+

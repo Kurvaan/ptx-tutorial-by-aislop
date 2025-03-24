@@ -1,0 +1,41 @@
+\subsubsection{MMA Instruction Syntax}
+
+A typical \texttt{mma.sync} instruction might look like:
+
+\begin{lstlisting}[style=ptx]
+mma.sync.aligned.m16n8k16.row.col.f16.f16.f16.f16 
+    {%d0,%d1,%d2,%d3}, 
+    {%a0,%a1,%a2,%a3}, 
+    {%b0,%b1}, 
+    {%c0,%c1,%c2,%c3};
+\end{lstlisting}
+
+Let's break down the components of this instruction:
+
+\begin{itemize}
+    \item \texttt{mma.sync} - The base operation (matrix multiply-accumulate with warp synchronization)
+    
+    \item \texttt{aligned} - Memory alignment requirement
+    
+    \item \texttt{m16n8k16} - Shape of the matrix operation:
+    \begin{itemize}
+        \item \texttt{m16} - 16 rows in the output matrix (and in matrix A)
+        \item \texttt{n8} - 8 columns in the output matrix (and in matrix B)
+        \item \texttt{k16} - Contraction dimension (columns of A, rows of B)
+    \end{itemize}
+    
+    \item \texttt{row.col} - Layout of matrices A and B (A is row-major, B is column-major)
+    
+    \item \texttt{f16.f16.f16.f16} - Data types for A, B, C, and D matrices (all FP16 in this case)
+    
+    \item The register lists in curly braces are the matrices' "fragments":
+    \begin{itemize}
+        \item \texttt{\{%d0,...,%d3\}} - Output matrix D (result)
+        \item \texttt{\{%a0,...,%a3\}} - Input matrix A
+        \item \texttt{\{%b0,%b1\}} - Input matrix B
+        \item \texttt{\{%c0,...,%c3\}} - Accumulator matrix C
+    \end{itemize}
+\end{itemize}
+
+The exact number of registers needed for each fragment depends on the matrix size and data type.
+

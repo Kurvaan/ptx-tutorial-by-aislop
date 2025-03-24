@@ -1,0 +1,24 @@
+\subsubsection{Global Memory Coalescing}
+
+Ensure that threads in a warp access contiguous memory addresses to maximize memory transaction efficiency:
+
+\begin{lstlisting}[style=ptx]
+// Good: Consecutive threads access consecutive addresses
+// Thread 0 accesses address base+0
+// Thread 1 accesses address base+4
+// etc.
+mov.u32 %r1, %tid.x;
+mul.wide.u32 %rd2, %r1, 4;  // 4 bytes per float
+add.u64 %rd3, %rd_base, %rd2;
+ld.global.f32 %f1, [%rd3];
+
+// Bad: Strided access pattern
+// Thread 0 accesses address base+0
+// Thread 1 accesses address base+stride
+// etc.
+mov.u32 %r1, %tid.x;
+mul.wide.u32 %rd2, %r1, %stride;
+add.u64 %rd3, %rd_base, %rd2;
+ld.global.f32 %f1, [%rd3];
+\end{lstlisting}
+

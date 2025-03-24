@@ -1,0 +1,30 @@
+\subsubsection{Inline PTX Assembly in CUDA C/C++}
+
+For small PTX snippets or minor adjustments to compiler-generated code, you can use CUDA's inline assembly syntax:
+
+\begin{lstlisting}[language=C++]
+__global__ void myKernel(float *data) {
+    int tid;
+    // Inline PTX to get thread ID
+    asm("{\n\tmov.u32 %0, %tid.x;\n}" : "=r"(tid));
+    
+    // Rest of kernel in C++
+    data[tid] = tid * 3.14f;
+}
+\end{lstlisting}
+
+This approach is convenient when you only need to optimize specific instructions while keeping most of the kernel in C++. NVIDIA provides documentation on inline PTX usage in their programming guide \citep{stackoverflow_ptx_inline}.
+
+The syntax follows the GCC extended inline assembly format:
+\begin{lstlisting}[language=C++]
+asm("assembly code" : outputs : inputs : clobbers);
+\end{lstlisting}
+
+Where:
+\begin{itemize}
+    \item \texttt{assembly code} is the PTX instructions
+    \item \texttt{outputs} specifies output operands
+    \item \texttt{inputs} specifies input operands
+    \item \texttt{clobbers} lists registers that might be modified
+\end{itemize}
+

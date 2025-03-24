@@ -1,0 +1,11 @@
+\subsubsection{Monitor Register Count}
+
+Use `ptxas -v` to track how many registers your kernel uses:
+
+\begin{lstlisting}[language=bash]
+ptxas -v mykernel.ptx
+# Output: ptxas info: Used 32 registers, 0 bytes spill stores...
+\end{lstlisting}
+
+The register count directly impacts how many warps can run concurrently on each SM. Lower register usage generally allows higher occupancy, which can help hide memory and instruction latency.
+

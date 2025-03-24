@@ -1,0 +1,9 @@
+\subsubsection{The Challenge}
+
+The attention mechanism in transformer models involves multiple matrix multiplications and a softmax operation:
+\begin{equation}
+\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
+\end{equation}
+
+When implemented using standard libraries, this requires multiple kernel launches and storing large intermediate results.
+

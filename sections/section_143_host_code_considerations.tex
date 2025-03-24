@@ -1,0 +1,63 @@
+\subsubsection{Host Code Considerations}
+
+When using PTX kernels that leverage Tensor Cores, the host code needs to ensure:
+
+\begin{itemize}
+    \item The input data is in the correct format (e.g., FP16 for this example)
+    \item Memory is properly aligned for efficient access
+    \item The grid and block dimensions are appropriate for the warp-centric execution model
+\end{itemize}
+
+\begin{lstlisting}[language=C++]
+// Example function setting up and launching a Tensor Core kernel
+void launchTensorCoreMatrixMultiply(
+    half* d_A, half* d_B, half* d_C,
+    int m, int k, int n,
+    int ldA, int ldB, int ldC) {
+    
+    // Ensure we're on a compatible device
+    int deviceId;
+    cudaGetDevice(&deviceId);
+    cudaDeviceProp props;
+    cudaGetDeviceProperties(&props, deviceId);
+    
+    if (props.major < 7) {
+        throw std::runtime_error("Tensor Cores require compute capability 7.0+");
+    }
+    
+    // Initialize CUDA Driver API
+    cuInit(0);
+    
+    // Load the PTX module
+    CUmodule module;
+    cuModuleLoad(&module, "tensorMM.ptx");
+    
+    // Get function handle
+    CUfunction tensorMM;
+    cuModuleGetFunction(&tensorMM, module, "tensorMM");
+    
+    // Set up launch configuration
+    // For Tensor Core operations, we typically organize by warps
+    // Each warp handles a portion of the matrix
+    dim3 blockDim(32, 1, 1);  // 1 warp per block
+    dim3 gridDim(m/16, n/16, 1);  // Grid sized for 16x16 tiles
+    
+    // Set up kernel parameters
+    void* args[] = {
+        &d_A, &d_B, &d_C, &ldA, &ldB, &ldC
+    };
+    
+    // Launch the kernel
+    cuLaunchKernel(
+        tensorMM,
+        gridDim.x, gridDim.y, gridDim.z,
+        blockDim.x, blockDim.y, blockDim.z,
+        0, nullptr,
+        args, nullptr
+    );
+    
+    // Clean up
+    cuModuleUnload(module);
+}
+\end{lstlisting}
+

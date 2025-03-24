@@ -1,0 +1,17 @@
+\subsubsection{Register Types}
+
+PTX supports various register types to hold different kinds of data:
+
+\begin{itemize}
+    \item \texttt{.b32}, \texttt{.b64} - Raw bits (32 or 64 bits), used for integers or pointers
+    \item \texttt{.s32}, \texttt{.s64} - Signed integers (32 or 64 bits)
+    \item \texttt{.u32}, \texttt{.u64} - Unsigned integers (32 or 64 bits)
+    \item \texttt{.f32}, \texttt{.f64} - Floating-point values (32 or 64 bits)
+    \item \texttt{.pred} - Predicate (1-bit boolean value)
+    \item Vector types like \texttt{.v2.f32} - Vectors of values (e.g., two f32 values treated as one unit)
+\end{itemize}
+
+\technote{
+Registers in PTX are virtual and don't directly correspond one-to-one with physical hardware registers \citep{arrayfire_ptx}. The PTX-to-SASS compiler will allocate physical registers and may optimize by eliminating unused registers or merging ones that don't have overlapping lifetimes.
+}
+

@@ -1,0 +1,32 @@
+\subsection{What is PTX?}
+
+PTX can be thought of as a virtual GPU assembly language—an intermediate representation that sits between your high-level CUDA code and the actual hardware instructions. When you compile a CUDA C/C++ program, the NVIDIA compiler (NVCC) first translates your device code into PTX, and then the PTX assembler (\texttt{ptxas}) converts that PTX into SASS (Streaming Assembly), which is the actual machine code for the specific GPU architecture \citep{nvidia_ptx_blog}.
+
+% \begin{figure}[h]
+%     \centering
+%     \begin{tikzpicture}[node distance=2cm]
+%         \node (cudac) [draw, rectangle, minimum width=3cm, minimum height=1cm, fill=blue!10] {CUDA C/C++};
+%         \node (ptx) [draw, rectangle, minimum width=3cm, minimum height=1cm, fill=green!10, right=of cudac] {PTX};
+%         \node (sass) [draw, rectangle, minimum width=3cm, minimum height=1cm, fill=red!10, right=of ptx] {SASS};
+%         \node (gpu) [draw, rectangle, minimum width=3cm, minimum height=1cm, fill=orange!10, right=of sass] {GPU Execution};
+        
+%         \draw[->, thick] (cudac) -- node[above] {NVCC} (ptx);
+%         \draw[->, thick] (ptx) -- node[above] {ptxas} (sass);
+%         \draw[->, thick] (sass) -- node[above] {driver} (gpu);
+%     \end{tikzpicture}
+%     \caption{The CUDA compilation pipeline showing how source code is transformed to GPU instructions}
+%     \label{fig:cuda_pipeline}
+% \end{figure}
+
+This design provides several advantages:
+
+\begin{itemize}
+    \item \textbf{Forward Compatibility}: PTX serves as a stable programming target that can be JIT-compiled by the GPU driver to run on newer hardware that didn't exist when the application was built \citep{nvidia_ptx_blog}.
+    
+    \item \textbf{Abstraction Layer}: PTX abstracts some hardware details while still providing low-level control over parallelism, memory operations, and synchronization.
+    
+    \item \textbf{Optimization Opportunities}: By inspecting or writing PTX directly, developers can implement optimizations that might be missed by the high-level compiler.
+\end{itemize}
+
+PTX is sometimes described as "CUDA's IR" (Intermediate Representation) \citep{bruce_lee_tensor_core}. Unlike pure machine code, PTX is somewhat higher-level—it supports symbolic registers, labels, and abstracts many hardware details. For example, a single PTX \texttt{add.f32} instruction may map to different actual instructions depending on the GPU generation.
+

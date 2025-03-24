@@ -1,0 +1,101 @@
+\subsubsection{Tile Loop Implementation}
+
+Now we implement the loop over tiles. For each tile, we:
+1. Load a portion of A and B from global to shared memory
+2. Synchronize threads
+3. Compute the partial dot product
+4. Synchronize again before the next iteration
+
+Here's a simplified version of the loop:
+
+\begin{lstlisting}[style=ptx]
+    // Initialize tile counter
+    mov.u32 %r_t, 0;
+    
+TILE_LOOP_START:
+    // Compute the indices for this tile
+    // ... (index calculation for A and B)
+    
+    // Load A element from global to shared memory
+    // Check bounds: if row < N && t*16 + threadIdx.x < N
+    setp.lt.u32 %p0, %r_row, %r_N;  // row < N
+    // ... (calculate index for t*16 + threadIdx.x)
+    setp.lt.u32 %p1, %r_k_idx, %r_N;  // t*16 + threadIdx.x < N
+    and.pred %p0, %p0, %p1;  // Both conditions true
+    
+    @!%p0 bra LOAD_A_ZERO;  // If not in bounds, load 0
+    
+    // Calculate global memory address for A[row, t*16 + threadIdx.x]
+    // ... (address calculation)
+    ld.global.f32 %f_a, [%rd_Aaddr];
+    bra STORE_A_SHARED;
+    
+LOAD_A_ZERO:
+    mov.f32 %f_a, 0f00000000;  // Load 0 if out of bounds
+    
+STORE_A_SHARED:
+    // Calculate shared memory index shmemA[threadIdx.y][threadIdx.x]
+    // ... (shared memory index calculation)
+    st.shared.f32 [%rd_shAddrA], %f_a;
+    
+    // Similar logic for loading B into shared memory
+    // ... (load B element)
+    
+    // Synchronize threads
+    bar.sync 0;
+    
+    // Compute partial dot product for this tile
+    // Initialize loop counter for k
+    mov.u32 %r_k, 0;
+    
+DOT_PRODUCT_LOOP:
+    // Calculate shared memory indices for A[threadIdx.y][k] and B[k][threadIdx.x]
+    // ... (index calculations)
+    
+    // Load from shared memory
+    ld.shared.f32 %f_a, [%rd_shA_k];
+    ld.shared.f32 %f_b, [%rd_shB_k];
+    
+    // Multiply-accumulate: f_acc += f_a * f_b
+    fma.rn.f32 %f_acc, %f_a, %f_b, %f_acc;
+    
+    // Increment k and check loop condition
+    add.u32 %r_k, %r_k, 1;
+    setp.lt.u32 %p0, %r_k, 16;  // k < 16
+    @%p0 bra DOT_PRODUCT_LOOP;  // Jump back if k < 16
+    
+    // Synchronize before next tile
+    bar.sync 0;
+    
+    // Increment tile counter and check if done
+    add.u32 %r_t, %r_t, 1;
+    // Calculate ceiling of N/16
+    add.u32 %r_temp, %r_N, 15;
+    div.u32 %r_num_tiles, %r_temp, 16;
+    setp.lt.u32 %p0, %r_t, %r_num_tiles;  // t < ceiling(N/16)
+    @%p0 bra TILE_LOOP_START;
+    
+    // Store final result to global memory if in bounds
+    setp.lt.u32 %p0, %r_row, %r_N;  // row < N
+    setp.lt.u32 %p1, %r_col, %r_N;  // col < N
+    and.pred %p0, %p0, %p1;  // Both conditions true
+    @!%p0 bra EXIT;  // Skip if out of bounds
+    
+    // Calculate global memory address for C[row, col]
+    // ... (address calculation)
+    st.global.f32 [%rd_Caddr], %f_acc;
+    
+EXIT:
+    ret;
+}
+\end{lstlisting}
+
+This PTX implementation is more verbose than the CUDA C++ version, but it illustrates how we explicitly manage:
+
+\begin{itemize}
+    \item \textbf{Thread indexing}: Manually computing row and column indices from block and thread IDs
+    \item \textbf{Memory management}: Explicit loads and stores between global and shared memory
+    \item \textbf{Control flow}: Using predicates and branches to implement loops and conditionals
+    \item \textbf{Synchronization}: Explicit barriers to coordinate threads
+\end{itemize}
+

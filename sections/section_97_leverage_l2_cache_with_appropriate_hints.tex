@@ -1,0 +1,15 @@
+\subsubsection{Leverage L2 Cache with Appropriate Hints}
+
+Modern NVIDIA GPUs have a large L2 cache shared by all SMs. You can use cache modifiers to influence caching behavior:
+
+\begin{lstlisting}[style=ptx]
+// Cache in L2 only
+ld.global.cg.f32 %f1, [%rd1];
+
+// Cache at all levels
+ld.global.ca.f32 %f1, [%rd1];
+
+// Do not cache (useful for one-time reads)
+ld.global.nc.f32 %f1, [%rd1];
+\end{lstlisting}
+

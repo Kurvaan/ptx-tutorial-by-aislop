@@ -1,0 +1,20 @@
+\subsection{Thread and Block Indexing}
+
+In CUDA C++, thread and block indices are accessed through built-in variables. In PTX, these values are available through special registers:
+
+\begin{lstlisting}[language=C++]
+// CUDA C++
+int idx = blockIdx.x * blockDim.x + threadIdx.x;
+\end{lstlisting}
+
+\begin{lstlisting}[style=ptx]
+// PTX
+mov.u32 %r1, %ctaid.x;   // blockIdx.x
+mov.u32 %r2, %ntid.x;    // blockDim.x
+mov.u32 %r3, %tid.x;     // threadIdx.x
+mul.lo.u32 %r4, %r1, %r2;
+add.u32 %idx, %r4, %r3;
+\end{lstlisting}
+
+For multi-dimensional blocks and grids, PTX provides \texttt{\%tid.y}, \texttt{\%tid.z}, \texttt{\%ctaid.y}, etc.
+

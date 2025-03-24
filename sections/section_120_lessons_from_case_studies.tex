@@ -1,0 +1,26 @@
+\subsection{Lessons from Case Studies}
+
+These case studies demonstrate several common patterns in successful PTX optimization for deep learning:
+
+\begin{enumerate}
+    \item \textbf{Kernel fusion} eliminates intermediate storage and reduces memory bandwidth requirements.
+    
+    \item \textbf{Warp-level primitives} enable efficient parallel reductions without shared memory overhead.
+    
+    \item \textbf{Hardware-specific features} like Tensor Cores can provide order-of-magnitude speedups when properly leveraged.
+    
+    \item \textbf{Algorithm redesign} at the PTX level can sometimes enable completely different approaches than what's expressible in high-level code.
+    
+    \item \textbf{Memory hierarchy management} is critical—clever use of registers, shared memory, and caches often makes the difference between mediocre and excellent performance.
+\end{enumerate}
+
+When considering whether a deep learning operation is worth optimizing in PTX, look for these characteristics:
+\begin{itemize}
+    \item Operations that are executed frequently
+    \item Operations with predictable access patterns
+    \item Operations where intermediate results can be kept in faster memory
+    \item Operations that can benefit from specialized hardware units
+\end{itemize}
+
+Many of these techniques have been incorporated into optimized deep learning libraries like NVIDIA's cuDNN and the open-source CUTLASS project, which provide high-performance primitives for common operations while abstracting away much of the complexity.
+

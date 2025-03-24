@@ -1,0 +1,18 @@
+\subsection{Performance Considerations for Tensor Core Usage}
+
+Using Tensor Cores effectively requires attention to several details:
+
+\begin{itemize}
+    \item \textbf{Data alignment}: Matrix dimensions and memory addresses often need to be aligned to specific boundaries.
+    
+    \item \textbf{Data layout}: Matrices must be arranged in memory according to the expected layout (row-major, column-major).
+    
+    \item \textbf{Precision requirements}: Different MMA operations support different precision formats, and not all operations are available on all GPU architectures.
+    
+    \item \textbf{Warp-level coordination}: Since MMA operations involve the entire warp, all threads must participate and provide their portions of the input data.
+\end{itemize}
+
+\opttip{
+Tensor Cores can provide enormous performance gains (often 5-10× or more) for matrix operations when used correctly. For deep learning workloads, which are dominated by matrix multiplications, this can translate to overall application speedups of 2-4× compared to using standard FP32 operations.
+}
+

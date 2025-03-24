@@ -1,0 +1,19 @@
+\subsubsection{Synchronization}
+
+Forgetting necessary synchronization points is a common source of race conditions:
+
+\begin{lstlisting}[style=ptx]
+// Thread 0 writes to shared memory
+st.shared.f32 [%rd_shared], %f1;
+
+// Thread 1 reads it immediately (RACE CONDITION!)
+ld.shared.f32 %f2, [%rd_shared];
+
+// Correct approach: add synchronization
+st.shared.f32 [%rd_shared], %f1;
+bar.sync 0;                  // All threads wait here
+ld.shared.f32 %f2, [%rd_shared];
+\end{lstlisting}
+
+Each \texttt{bar.sync} instruction should have a matching synchronization in all threads of the block to avoid deadlocks.
+

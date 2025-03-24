@@ -1,0 +1,16 @@
+\subsubsection{Memory Space Overview}
+
+The main memory spaces in PTX correspond to the memory hierarchy in CUDA C++:
+
+\begin{itemize}
+    \item \textbf{Global memory} (\texttt{.global}): The large but relatively slow GPU DRAM, accessible by all threads.
+    
+    \item \textbf{Shared memory} (\texttt{.shared}): Fast on-chip memory shared by threads in a block, used for communication and data reuse.
+    
+    \item \textbf{Local memory} (\texttt{.local}): Thread-private memory used for register spills or large local arrays, physically located in device memory (slow).
+    
+    \item \textbf{Constant memory} (\texttt{.const}): Read-only memory with a dedicated cache, optimized for broadcast access.
+    
+    \item \textbf{Parameter memory} (\texttt{.param}): Used for passing arguments to kernels and between functions.
+\end{itemize}
+

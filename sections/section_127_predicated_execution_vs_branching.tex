@@ -1,0 +1,17 @@
+\subsection{Predicated Execution vs. Branching}
+
+For short conditional code, PTX often uses predicated execution instead of branches to avoid warp divergence:
+
+\begin{lstlisting}[language=C++]
+// CUDA C++
+result = (value > 0.0f) ? value : 0.0f;  // Ternary operator
+\end{lstlisting}
+
+\begin{lstlisting}[style=ptx]
+// PTX with predicated execution (no branches)
+setp.gt.f32 %p1, %f_value, 0f00000000;      // value > 0.0?
+selp.f32 %f_result, %f_value, 0f00000000, %p1; // Select based on predicate
+\end{lstlisting}
+
+The \texttt{selp} instruction selects between two values based on a predicate, avoiding branching altogether.
+

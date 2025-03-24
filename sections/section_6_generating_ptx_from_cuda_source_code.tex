@@ -1,0 +1,18 @@
+\subsection{Generating PTX from CUDA Source Code}
+
+NVIDIA provides straightforward tools to extract PTX from CUDA source code. The simplest approach is to use the \texttt{-ptx} flag with the NVCC compiler:
+
+\begin{lstlisting}[language=bash]
+nvcc -ptx mykernel.cu -o mykernel.ptx
+\end{lstlisting}
+
+This command tells NVCC to compile the device code in \texttt{mykernel.cu} into a PTX file (without producing a full binary or executable). The resulting \texttt{mykernel.ptx} will be a text file that you can open in any editor to inspect the assembly-like instructions \citep{nvidia_ptx_forums}.
+
+For more control, you can specify the compute capability of the target GPU using the \texttt{-arch} flag:
+
+\begin{lstlisting}[language=bash]
+nvcc -ptx -arch=sm_80 mykernel.cu -o mykernel.ptx
+\end{lstlisting}
+
+This generates PTX specifically for compute capability 8.0 (NVIDIA Ampere architecture). Different compute capabilities may produce slightly different PTX due to hardware-specific optimizations and available features.
+

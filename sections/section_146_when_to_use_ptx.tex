@@ -1,0 +1,14 @@
+\subsection{When to Use PTX}
+
+Hand-written or hand-optimized PTX is most valuable when:
+
+\begin{itemize}
+    \item You need access to hardware features not fully exposed by high-level APIs
+    \item You're implementing custom operations not available in standard libraries
+    \item You're fusing multiple operations to reduce memory traffic
+    \item You're targeting a specific GPU architecture and want to squeeze out maximum performance
+    \item You're implementing algorithms where small performance gains have a large impact due to frequent execution
+\end{itemize}
+
+However, it's important to recognize that PTX programming comes with increased complexity and maintenance costs. For many applications, well-written CUDA C++ with strategic use of libraries like cuBLAS, cuDNN, and CUTLASS will deliver excellent performance without the complexity of PTX.
+

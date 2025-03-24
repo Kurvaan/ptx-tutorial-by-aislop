@@ -1,0 +1,10 @@
+\subsubsection{Avoid Register Spilling}
+
+If your kernel uses more registers than available per thread, the excess variables "spill" to local memory (which is much slower):
+
+\begin{itemize}
+    \item Look for `spill stores` and `spill loads` in the `ptxas` output
+    \item If spills occur, try to reduce the number of live variables or restructure the code
+    \item Consider reusing registers when variables are no longer needed
+\end{itemize}
+

@@ -1,0 +1,15 @@
+\subsubsection{Declaring Static Memory}
+
+To use shared or constant memory, you need to declare it in the PTX code:
+
+\begin{lstlisting}[style=ptx]
+// Declare a 256-element array of 32-bit values in shared memory
+.shared .align 4 .b32 sharedArray[256];
+
+// Declare a constant array
+.const .align 4 .b32 constArray[16] = {1, 2, 3, 4, 5, 6, 7, 8,
+                                       9, 10, 11, 12, 13, 14, 15, 16};
+\end{lstlisting}
+
+The \texttt{.align} directive ensures proper alignment, which can be important for performance and correctness.
+

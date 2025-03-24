@@ -1,0 +1,27 @@
+\subsection{Optimizing the Dot Product Computation}
+
+In practice, to maximize performance, we might unroll the inner dot product loop to reduce loop overhead and enable instruction-level parallelism:
+
+\begin{lstlisting}[style=ptx]
+    // Instead of a loop, manually unroll the 16 iterations
+    // For k=0
+    // Load from shared memory
+    ld.shared.f32 %f_a0, [%rd_shA_base + 0*4];  // A[ty][0]
+    ld.shared.f32 %f_b0, [%rd_shB_base + 0*64]; // B[0][tx]
+    fma.rn.f32 %f_acc, %f_a0, %f_b0, %f_acc;   // acc += A[ty][0] * B[0][tx]
+    
+    // For k=1
+    ld.shared.f32 %f_a1, [%rd_shA_base + 1*4];  // A[ty][1]
+    ld.shared.f32 %f_b1, [%rd_shB_base + 1*64]; // B[1][tx]
+    fma.rn.f32 %f_acc, %f_a1, %f_b1, %f_acc;   // acc += A[ty][1] * B[1][tx]
+    
+    // ... (repeat for k=2 through k=14)
+    
+    // For k=15
+    ld.shared.f32 %f_a15, [%rd_shA_base + 15*4];  // A[ty][15]
+    ld.shared.f32 %f_b15, [%rd_shB_base + 15*64]; // B[15][tx]
+    fma.rn.f32 %f_acc, %f_a15, %f_b15, %f_acc;   // acc += A[ty][15] * B[15][tx]
+\end{lstlisting}
+
+This unrolling eliminates branch overhead and allows the hardware to better schedule instructions, potentially overlapping memory loads with computation.
+

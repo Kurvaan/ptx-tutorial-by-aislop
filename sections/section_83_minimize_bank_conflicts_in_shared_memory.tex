@@ -1,0 +1,21 @@
+\subsubsection{Minimize Bank Conflicts in Shared Memory}
+
+Shared memory is divided into banks (typically 32 banks on modern GPUs). If multiple threads in a warp access the same bank, those accesses are serialized, reducing performance.
+
+Common techniques to avoid bank conflicts include:
+
+\begin{itemize}
+    \item Padding arrays (adding an extra element between rows)
+    \item Using transposition during loads to change access patterns
+    \item Carefully designing data layouts to ensure threads access different banks
+\end{itemize}
+
+\begin{lstlisting}[style=ptx]
+// Example: Padding to avoid bank conflicts
+// Instead of a 32x32 array, use 33x32 with one element of padding per row
+.shared .align 4 .b32 sharedData[33*32];
+
+// When accessing row i, column j:
+// Address = i*33 + j instead of i*32 + j
+\end{lstlisting}
+

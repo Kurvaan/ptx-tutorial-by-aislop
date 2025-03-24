@@ -1,0 +1,15 @@
+\subsubsection{PTX-Level Debugging}
+
+For PTX-level debugging, you can use the `set cuda ptx` command to control the disassembly mode:
+
+\begin{lstlisting}[language=bash]
+(cuda-gdb) set cuda disassembly-flavor ptx
+(cuda-gdb) disassemble        # Shows PTX instructions
+\end{lstlisting}
+
+This allows you to step through individual PTX instructions and observe register values at each step.
+
+\technote{
+Debugging hand-written PTX can be challenging if CUDA doesn't have source information mapping. In such cases, you may need to rely more on inspecting memory after kernel execution or using assertions within your code.
+}
+

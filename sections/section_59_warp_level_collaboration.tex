@@ -1,0 +1,8 @@
+\subsubsection{Warp-Level Collaboration}
+
+An important concept with MMA operations is that they are \textbf{warp-level operations}. All 32 threads in a warp collaborate to perform the matrix multiplication, with each thread holding a portion of the input and output data.
+
+When a thread issues an \texttt{mma.sync} instruction, it's actually directing the entire warp to perform a collective operation using the register fragments distributed across all threads. The "fragments" are not complete matrices in a single thread, but rather pieces of matrices distributed among the threads in specific patterns.
+
+This is why MMA operations include "sync" in their name—they inherently synchronize the warp's execution.
+

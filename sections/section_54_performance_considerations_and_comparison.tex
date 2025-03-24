@@ -1,0 +1,28 @@
+\subsection{Performance Considerations and Comparison}
+
+The PTX implementation offers several advantages over relying on the compiler to generate code from CUDA C++:
+
+\begin{itemize}
+    \item \textbf{Fine-grained control}: We have explicit control over instruction scheduling and unrolling. We can ensure the loop is fully unrolled without any compiler-introduced conditionals.
+    
+    \item \textbf{Instruction interleaving}: We can manually interleave instructions to maximize instruction-level parallelism. For example, we could issue a load for the next iteration while the current multiply-add is happening.
+    
+    \item \textbf{Special instructions}: On newer GPUs, we can use specialized instructions like tensor core operations for matrix math, which might not be automatically used by the compiler.
+    
+    \item \textbf{Custom tile sizes}: We can tailor the kernel to specific matrix sizes or use custom tile sizes that the general compiler might not choose.
+\end{itemize}
+
+However, the PTX implementation is also:
+
+\begin{itemize}
+    \item More verbose and harder to read
+    \item More difficult to maintain
+    \item More error-prone due to manual memory address calculations and synchronization
+\end{itemize}
+
+In practice, a good approach is to start with a high-level CUDA C++ implementation and use PTX only for the performance-critical sections or when you need specific hardware features.
+
+\technote{
+When writing PTX, make sure to verify that your optimizations actually improve performance. The compiler is quite sophisticated and often generates good code for common patterns like matrix multiplication. Hand-optimized PTX is most beneficial for unusual access patterns or when leveraging hardware features not fully exposed by the compiler.
+}
+

@@ -1,0 +1,10 @@
+\subsection{The Matrix Multiplication Problem}
+
+Matrix multiplication is a fundamental operation in deep learning. Given two matrices A and B, we want to compute their product C = A × B.
+
+For simplicity, let's consider the case where all matrices are square with dimensions N×N. In matrix multiplication, each element C[i,j] is the dot product of row i from matrix A and column j from matrix B:
+
+\begin{equation}
+C[i,j] = \sum_{k=0}^{N-1} A[i,k] \times B[k,j]
+\end{equation}
+

@@ -1,0 +1,19 @@
+\subsubsection{Register Pressure vs. Recomputation}
+
+Sometimes it's better to recompute a value than to store it in a register, especially if register pressure is high:
+
+\begin{lstlisting}[style=ptx]
+// High register pressure: store result
+mul.f32 %f1, %f2, %f3;
+// ... many instructions later
+add.f32 %f4, %f1, %f5;
+
+// Alternative: recompute when needed
+mul.f32 %f1, %f2, %f3;
+// ... many instructions later
+mul.f32 %f1, %f2, %f3;  // Recompute instead of storing
+add.f32 %f4, %f1, %f5;
+\end{lstlisting}
+
+The optimal approach depends on the specific kernel and hardware. Profile both approaches to determine which is faster.
+

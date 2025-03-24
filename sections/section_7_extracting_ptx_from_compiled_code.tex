@@ -1,0 +1,18 @@
+\subsection{Extracting PTX from Compiled Code}
+
+If you have an already compiled executable or library that contains embedded PTX and cubin code, you can extract the PTX using the CUDA Binary Utilities:
+
+\begin{lstlisting}[language=bash]
+cuobjdump -ptx myprogram
+\end{lstlisting}
+
+This will dump any PTX embedded in \texttt{myprogram}'s CUDA binaries \citep{nvidia_cuda_binary}. This approach is useful if you want to examine the PTX for kernels in pre-built applications or libraries, such as deep learning frameworks.
+
+Additionally, you can use \texttt{cuobjdump -sass} to dump the SASS (machine code) for comparison:
+
+\begin{lstlisting}[language=bash]
+cuobjdump -sass myprogram
+\end{lstlisting}
+
+Comparing PTX with SASS can reveal how the assembler transforms your intermediate code into actual hardware instructions.
+

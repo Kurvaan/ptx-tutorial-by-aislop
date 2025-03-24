@@ -1,0 +1,31 @@
+\subsubsection{Kernel Entry Points}
+
+Kernel functions—those that can be launched from host code—are declared with the \texttt{.entry} directive:
+
+\begin{lstlisting}[style=ptx]
+.visible .entry kernelName(
+    .param .u64 param_A,    // first parameter (a pointer)
+    .param .u32 param_N     // second parameter (an integer)
+) {
+    // kernel body
+    // ...
+    ret;
+}
+\end{lstlisting}
+
+The components of this declaration are:
+
+\begin{itemize}
+    \item \texttt{.visible} - Makes the entry point externally visible, allowing the host to find it by name.
+    
+    \item \texttt{.entry} - Marks this as a kernel function (as opposed to a device function).
+    
+    \item \texttt{kernelName} - The name of the kernel, used when launching it from host code.
+    
+    \item \texttt{.param} declarations - List the parameters the kernel expects, with their types.
+\end{itemize}
+
+The parameters are declared with \texttt{.param} followed by a type qualifier (like \texttt{.u64} for a 64-bit unsigned integer or pointer) and a name. Inside the function body, these parameters are accessible via \texttt{ld.param} instructions that load from the parameter space into registers.
+
+Device functions (callable only from device code) use \texttt{.func} instead of \texttt{.entry} and can omit the \texttt{.visible} qualifier if they're only used internally.
+

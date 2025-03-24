@@ -1,0 +1,95 @@
+\subsubsection{PTX Kernel for Tensor Core Matrix Multiplication}
+
+\begin{lstlisting}[style=ptx]
+.version 7.0
+.target sm_80
+.address_size 64
+
+// Simplified 16x16 matrix multiply using Tensor Cores
+.visible .entry tensorMM(
+    .param .u64 A_ptr,    // FP16 input matrix A [16x16]
+    .param .u64 B_ptr,    // FP16 input matrix B [16x16]
+    .param .u64 C_ptr,    // FP16 output matrix C [16x16]
+    .param .u32 ldA,      // Leading dimension of A
+    .param .u32 ldB,      // Leading dimension of B
+    .param .u32 ldC       // Leading dimension of C
+) {
+    // Register declarations (minimized for clarity)
+    .reg .pred %p;
+    .reg .b32 %r<10>;
+    .reg .b64 %rd<16>;
+    .reg .b32 %A<4>;     // FP16x2 registers for matrix A fragment
+    .reg .b32 %B<4>;     // FP16x2 registers for matrix B fragment
+    .reg .b32 %C<4>;     // FP16x2 registers for accumulator/result
+    .reg .b32 %D<4>;     // FP16x2 registers for output matrix
+    
+    // Shared memory for staging data
+    .shared .align 16 .b32 sharedA[256];  // 16x16 half-precision elements
+    .shared .align 16 .b32 sharedB[256];  // 16x16 half-precision elements
+    
+    // Load parameters
+    ld.param.u64 %rd1, [A_ptr];
+    ld.param.u64 %rd2, [B_ptr];
+    ld.param.u64 %rd3, [C_ptr];
+    ld.param.u32 %r1, [ldA];
+    ld.param.u32 %r2, [ldB];
+    ld.param.u32 %r3, [ldC];
+    
+    // Compute thread indices
+    mov.u32 %r4, %tid.x;    // Lane ID
+    mov.u32 %r5, %tid.y;    // Row within warp
+    
+    // Calculate global memory offsets (simplified for clarity)
+    // In a real implementation, calculate proper offsets based on
+    // warp ID, lane ID, etc. to handle matrices larger than 16x16
+    
+    // Load input data to shared memory (all threads cooperatively)
+    // ... (detailed loading code omitted for brevity)
+    
+    // Synchronize to ensure all data is loaded
+    bar.sync 0;
+    
+    // Load matrix fragments from shared memory
+    // In Ampere, you could use the ldmatrix instruction here
+    // For simplicity, we show a more generic approach
+    
+    // Reset accumulator to zeros
+    mov.b32 %C0, 0;
+    mov.b32 %C1, 0;
+    mov.b32 %C2, 0;
+    mov.b32 %C3, 0;
+    
+    // Load A fragment from shared memory to registers
+    ld.shared.b32 %A0, [sharedA + 0]; // Load 2 FP16 values
+    ld.shared.b32 %A1, [sharedA + 4]; // Next 2 FP16 values
+    ld.shared.b32 %A2, [sharedA + 8];
+    ld.shared.b32 %A3, [sharedA + 12];
+    
+    // Load B fragment from shared memory to registers
+    ld.shared.b32 %B0, [sharedB + 0];
+    ld.shared.b32 %B1, [sharedB + 4];
+    ld.shared.b32 %B2, [sharedB + 8];
+    ld.shared.b32 %B3, [sharedB + 12];
+    
+    // Perform matrix multiplication using Tensor Core instruction
+    // In this simplified example, we assume we've properly loaded 16x16 fragments
+    mma.sync.aligned.m16n8k16.row.col.f16.f16.f16.f16 
+        {%D0, %D1, %D2, %D3}, 
+        {%A0, %A1, %A2, %A3}, 
+        {%B0, %B1, %B2, %B3}, 
+        {%C0, %C1, %C2, %C3};
+    
+    // Wait for computation to complete
+    bar.sync 0;
+    
+    // Store result matrix back to global memory
+    // ... (detailed storing code omitted for brevity)
+    
+    ret;
+}
+\end{lstlisting}
+
+\technote{
+This example is considerably simplified to highlight the key Tensor Core operation. A real implementation would need to carefully manage data layout, thread cooperation within a warp, and proper address calculations for loading and storing data fragments. The NVIDIA CUTLASS library provides reference implementations for these patterns.
+}
+

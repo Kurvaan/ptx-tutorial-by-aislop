@@ -1,0 +1,27 @@
+\subsubsection{Memory Alignment}
+
+Unaligned memory access can severely impact performance:
+
+\begin{lstlisting}[style=ptx]
+// Potentially unaligned access (if addr not multiple of 16)
+ld.global.v4.f32 {%f1, %f2, %f3, %f4}, [%rd_addr];
+
+// Better: ensure address is aligned or use single-element
+
+setp.ne.u64 %p1, %rd_addr, %rd_addr_aligned;
+@%p1 bra UNALIGNED_PATH;
+
+// Aligned path
+ld.global.v4.f32 {%f1, %f2, %f3, %f4}, [%rd_addr_aligned];
+bra DONE;
+
+UNALIGNED_PATH:
+// Individual loads for unaligned accesses
+ld.global.f32 %f1, [%rd_addr];
+ld.global.f32 %f2, [%rd_addr+4];
+ld.global.f32 %f3, [%rd_addr+8];
+ld.global.f32 %f4, [%rd_addr+12];
+
+DONE:
+\end{lstlisting}
+

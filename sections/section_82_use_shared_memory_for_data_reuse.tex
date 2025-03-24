@@ -1,0 +1,24 @@
+\subsubsection{Use Shared Memory for Data Reuse}
+
+Shared memory is much faster than global memory for data that will be accessed multiple times:
+
+\begin{lstlisting}[style=ptx]
+// Declare shared memory
+.shared .align 4 .b32 sharedData[256];
+
+// Load from global to shared (coalesced access)
+// ... compute shared memory address
+ld.global.f32 %f1, [%rd_global];
+st.shared.f32 [%rd_shared], %f1;
+
+// Synchronize
+bar.sync 0;
+
+// Now multiple threads can reuse this data from shared memory
+// ... compute shared addresses for different access patterns
+ld.shared.f32 %f2, [%rd_shared_access1];
+ld.shared.f32 %f3, [%rd_shared_access2];
+\end{lstlisting}
+
+This is especially important for operations like convolutions and matrix multiplications, where each input element is used in multiple output calculations.
+

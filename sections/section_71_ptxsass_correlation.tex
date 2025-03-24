@@ -1,0 +1,20 @@
+\subsubsection{PTX/SASS Correlation}
+
+One of the most valuable features of Nsight Compute for PTX development is the **Source/PTX/SASS correlation view**. This view shows your source code (or PTX) alongside the compiled SASS instructions, with metrics for each line.
+
+To use this feature:
+\begin{enumerate}
+    \item Compile with lineinfo to preserve the mapping between source and assembly:
+    \begin{lstlisting}[language=bash]
+    nvcc --keep --source-in-ptx -lineinfo myprogram.cu
+    \end{lstlisting}
+    
+    \item Profile the application in Nsight Compute
+    
+    \item Open the "Source" tab in the results
+    
+    \item Select the desired view (Source, PTX, or SASS) and metrics
+\end{enumerate}
+
+This view shows which instructions are causing stalls or executing inefficiently, helping you pinpoint exactly where to optimize your PTX code.
+

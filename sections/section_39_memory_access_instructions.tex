@@ -1,0 +1,20 @@
+\subsubsection{Memory Access Instructions}
+
+Memory operations in PTX specify the memory space, data type, and addressing:
+
+\begin{lstlisting}[style=ptx]
+// Load a float from global memory
+ld.global.f32 %f1, [%rd1];
+
+// Store a 32-bit value to shared memory
+st.shared.b32 [%rd2], %r1;
+
+// Load from constant memory
+ld.const.f32 %f2, [%rd3+4];  // Offset by 4 bytes
+
+// Load a 64-bit parameter
+ld.param.u64 %rd4, [param_ptr];
+\end{lstlisting}
+
+The general format is \texttt{ld.<space>.<type>} for loads and \texttt{st.<space>.<type>} for stores, where \texttt{<space>} is the memory space and \texttt{<type>} is the data type.
+

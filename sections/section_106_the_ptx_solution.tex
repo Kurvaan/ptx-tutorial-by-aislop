@@ -1,0 +1,18 @@
+\subsubsection{The PTX Solution}
+
+By writing a custom PTX kernel, we can fuse these operations, performing the activation immediately after the linear transformation without storing intermediate results:
+
+\begin{lstlisting}[style=ptx]
+// Portion of a fused GEMM + ReLU kernel
+// After computing the matrix multiplication result in %f_acc
+
+// Apply ReLU activation in place
+mov.f32 %f_zero, 0f00000000;          // Load constant 0.0
+max.f32 %f_result, %f_acc, %f_zero;    // ReLU: max(x, 0)
+
+// Store the activated result directly
+st.global.f32 [%rd_output], %f_result;
+\end{lstlisting}
+
+For more complex activations like Sigmoid or GELU, we can implement the entire function inline without intermediate stores to global memory.
+

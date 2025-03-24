@@ -1,0 +1,16 @@
+\subsubsection{Register Management}
+
+In CUDA C++, the compiler automatically manages register allocation and lifetimes. In PTX, you are responsible for declaring and reusing registers:
+
+\begin{lstlisting}[style=ptx]
+// Poor register usage (too many registers)
+.reg .f32 %f1, %f2, %f3, %f4, %f5, %f6, %f7, %f8;
+.reg .f32 %f9, %f10, %f11, %f12, %f13, %f14, %f15, %f16;
+// ...
+
+// Better approach: reuse registers when possible
+.reg .f32 %f<4>;  // Just four registers, reuse them
+\end{lstlisting}
+
+Monitor register usage with \texttt{ptxas -v} and be alert for register spills.
+

@@ -1,0 +1,27 @@
+\subsubsection{Loading Parameters and Computing Thread Indices}
+
+Next, we load the kernel parameters and compute the global thread indices:
+
+\begin{lstlisting}[style=ptx]
+    // Load parameters
+    ld.param.u64 %rd_A, [A_ptr];
+    ld.param.u64 %rd_B, [B_ptr];
+    ld.param.u64 %rd_C, [C_ptr];
+    ld.param.u32 %r_N, [N_val];
+    
+    // Compute thread and block indices
+    mov.u32 %r_tid_x, %tid.x;   // threadIdx.x
+    mov.u32 %r_tid_y, %tid.y;   // threadIdx.y
+    mov.u32 %r_bx, %ctaid.x;    // blockIdx.x
+    mov.u32 %r_by, %ctaid.y;    // blockIdx.y
+    
+    // Compute global row and column indices
+    // row = blockIdx.y * 16 + threadIdx.y
+    mul.lo.u32 %r_row, %r_by, 16;
+    add.u32 %r_row, %r_row, %r_tid_y;
+    
+    // col = blockIdx.x * 16 + threadIdx.x
+    mul.lo.u32 %r_col, %r_bx, 16;
+    add.u32 %r_col, %r_col, %r_tid_x;
+\end{lstlisting}
+

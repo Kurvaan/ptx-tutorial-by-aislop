@@ -1,0 +1,11 @@
+\subsubsection{Performance Impact}
+
+The optimized layer normalization delivered:
+\begin{itemize}
+    \item \textbf{Latency reduction}: 2.1× lower latency compared to the multi-pass approach
+    \item \textbf{Memory bandwidth}: 3× reduction in global memory traffic
+    \item \textbf{Integration benefits}: Better fusion opportunities with preceding operations
+\end{itemize}
+
+Given that layer normalization appears in nearly every transformer layer, this optimization had a multiplier effect on overall model performance.
+

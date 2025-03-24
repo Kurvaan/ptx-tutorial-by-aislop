@@ -1,0 +1,37 @@
+\subsection{Example 2: Element-wise ReLU Activation with Inline PTX}
+
+Next, let's examine a more practical deep learning example: implementing the ReLU activation function using inline PTX assembly within a CUDA C++ kernel.
+
+\begin{lstlisting}[language=C++]
+#include <cuda_runtime.h>
+
+// ReLU activation using inline PTX
+__global__ void reluActivation(float* data, int n) {
+    int idx = blockIdx.x * blockDim.x + threadIdx.x;
+    if (idx < n) {
+        float x = data[idx];
+        float result;
+        
+        // Inline PTX assembly to compute max(x, 0)
+        asm volatile (
+            "{\n\t"
+            "max.f32 %0, %1, 0f00000000;\n\t"
+            "}"
+            : "=f"(result)   // Output operand
+            : "f"(x)         // Input operand
+        );
+        
+        data[idx] = result;
+    }
+}
+
+// Launch wrapper function
+void launchReluActivation(float* d_data, int n) {
+    int threadsPerBlock = 256;
+    int blocksPerGrid = (n + threadsPerBlock - 1) / threadsPerBlock;
+    reluActivation<<<blocksPerGrid, threadsPerBlock>>>(d_data, n);
+}
+\end{lstlisting}
+
+This example demonstrates a simple use of inline PTX. While this particular case doesn't provide a significant advantage over the C++ equivalent (`data[idx] = fmaxf(data[idx], 0.0f)`), it illustrates the technique. Inline PTX becomes more valuable for operations without direct C++ equivalents or when you need to chain multiple operations without compiler interference.
+

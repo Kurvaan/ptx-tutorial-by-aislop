@@ -1,0 +1,20 @@
+\subsection{Why Learn PTX for Deep Learning?}
+
+For developers working on deep learning applications, understanding PTX can be valuable for several reasons:
+
+\begin{itemize}
+    \item \textbf{Performance Optimization}: Deep learning is extremely performance-sensitive. By understanding or writing PTX, you can optimize critical kernels beyond what automatic compilation provides.
+    
+    \item \textbf{Access to Hardware Features}: Some specialized hardware features (like Tensor Cores) might be more directly or flexibly accessible through PTX than through high-level APIs.
+    
+    \item \textbf{Custom Operations}: When implementing custom neural network operations not supported by frameworks, low-level PTX knowledge can help maximize performance.
+    
+    \item \textbf{Debugging}: Understanding PTX helps diagnose performance issues by seeing what the compiler is actually doing with your high-level code.
+\end{itemize}
+
+In deep learning workloads, operations like matrix multiplication, convolutions, and custom fusion kernels are performance-critical. Knowledge of PTX enables fine-tuning these operations to get the most out of the GPU hardware.
+
+\opttip{
+While libraries like cuDNN and cuBLAS are highly optimized for common deep learning operations, custom operations or unique combinations of operations may benefit from hand-tuned PTX code. This is especially true for research implementations where standard libraries may not yet support new algorithmic innovations.
+}
+

@@ -1,0 +1,26 @@
+\subsection{CUDA Compute Sanitizer}
+
+The CUDA Compute Sanitizer (cuda-memcheck) helps detect memory errors and race conditions in CUDA applications, which is particularly valuable when writing low-level PTX code where such errors can be subtle.
+
+\begin{lstlisting}[language=bash]
+cuda-memcheck ./myprogram
+\end{lstlisting}
+
+The sanitizer checks for issues like:
+\begin{itemize}
+    \item Out-of-bounds memory accesses
+    \item Uninitialized memory usage
+    \item Race conditions in shared memory
+    \item Misaligned memory accesses
+\end{itemize}
+
+Running with specific checkers can focus on particular issues:
+
+\begin{lstlisting}[language=bash]
+cuda-memcheck --tool racecheck ./myprogram  # Check for race conditions
+\end{lstlisting}
+
+\warning{
+When writing PTX directly, it's easy to make address calculation errors. Always run your code through Compute Sanitizer to catch memory issues early, as these can be difficult to debug otherwise.
+}
+

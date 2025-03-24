@@ -1,0 +1,11 @@
+\subsubsection{Use Texture Memory for Read-Only Data with Spatial Locality}
+
+Texture memory provides caching optimized for 2D spatial locality, which can be beneficial for operations like convolutions:
+
+\begin{lstlisting}[style=ptx]
+// Texture load example
+tex.2d.v4.f32.f32 {%f1, %f2, %f3, %f4}, [%tex_reference, {%f5, %f6}];
+\end{lstlisting}
+
+Though texture usage in PTX is complex, it can provide significant benefits for certain access patterns.
+

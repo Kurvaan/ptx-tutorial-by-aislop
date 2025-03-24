@@ -1,0 +1,11 @@
+\subsubsection{Performance Impact}
+
+In a benchmark with a typical transformer layer, fusion of the GEMM operation with GELU activation showed:
+\begin{itemize}
+    \item \textbf{Memory traffic reduction}: 33% less global memory traffic
+    \item \textbf{Speed improvement}: 1.4× faster execution time
+    \item \textbf{Energy efficiency}: 25% reduction in power consumption
+\end{itemize}
+
+The gains were particularly significant for smaller batch sizes where the operation was more memory-bound.
+

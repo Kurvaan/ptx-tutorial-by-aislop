@@ -1,0 +1,28 @@
+\subsection{When to Use PTX vs. CUDA C++}
+
+Not every situation calls for hand-written PTX. Consider these guidelines:
+
+\begin{itemize}
+    \item \textbf{Use CUDA C++} when:
+    \begin{itemize}
+        \item Rapid development is more important than squeezing out the last bit of performance
+        \item The algorithm is complex with many control paths
+        \item The code needs to be maintained by a team, including less specialized developers
+        \item Performance is already sufficient with high-level code
+    \end{itemize}
+    
+    \item \textbf{Use PTX} when:
+    \begin{itemize}
+        \item You need absolute control over instruction selection and scheduling
+        \item You want to use hardware features not yet exposed in high-level APIs
+        \item Profiling shows that compiler-generated code has inefficiencies in critical paths
+        \item You're implementing a specialized algorithm where a small performance gain has a large impact
+    \end{itemize}
+\end{itemize}
+
+Often, the best approach is a hybrid: implement most of the application in CUDA C++ and only drop to PTX for the most performance-critical sections.
+
+\technote{
+A good compromise is to use inline PTX assembly within CUDA C++ kernels. This gives you fine-grained control over specific operations while keeping the overall structure in the more readable high-level language.
+}
+

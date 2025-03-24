@@ -1,0 +1,20 @@
+\subsubsection{Version and Target Directives}
+
+These directives typically appear at the top of a PTX file:
+
+\begin{lstlisting}[style=ptx]
+.version 8.7        // PTX ISA version 8.7
+.target sm_90       // target GPU architecture (Hopper GPUs)
+.address_size 64    // 64-bit addressing
+\end{lstlisting}
+
+\begin{itemize}
+    \item \texttt{.version} - Specifies the PTX ISA (Instruction Set Architecture) version. This defines the language features available in the PTX code.
+    
+    \item \texttt{.target} - Indicates the GPU architecture family for which the PTX is being written. Examples include \texttt{sm\_70} for Volta, \texttt{sm\_80} for Ampere, and \texttt{sm\_90} for Hopper.
+    
+    \item \texttt{.address\_size} - Defines the size of memory addresses (typically 64 bits for modern GPUs).
+\end{itemize}
+
+The PTX version corresponds to the language capabilities and advances alongside the CUDA toolkit version. The target specifies which GPU generation's features you can use—if omitted or set to a generic \texttt{compute\_XY}, the PTX might be more portable but could restrict access to certain hardware-specific instructions.
+

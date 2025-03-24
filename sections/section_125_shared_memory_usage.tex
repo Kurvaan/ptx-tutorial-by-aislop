@@ -1,0 +1,36 @@
+\subsection{Shared Memory Usage}
+
+Shared memory is a powerful tool for thread collaboration. Here's how it appears in both CUDA C++ and PTX:
+
+\begin{lstlisting}[language=C++]
+// CUDA C++
+__shared__ float sharedData[256];
+sharedData[threadIdx.x] = input[idx];
+__syncthreads();
+float value = sharedData[threadIdx.y];
+\end{lstlisting}
+
+\begin{lstlisting}[style=ptx]
+// PTX
+.shared .align 4 .b32 sharedData[256];  // Declare shared memory array
+
+// Calculate shared memory address (threadIdx.x * 4 bytes)
+mov.u32 %r1, %tid.x;
+mul.wide.u32 %rd1, %r1, 4;
+mov.u64 %rd2, sharedData;
+add.u64 %rd3, %rd2, %rd1;
+
+// Store to shared memory
+ld.global.f32 %f1, [%rd_input_addr];  // Assume address calculated earlier
+st.shared.f32 [%rd3], %f1;
+
+// Synchronize
+bar.sync 0;
+
+// Load from different location in shared memory
+mov.u32 %r2, %tid.y;
+mul.wide.u32 %rd4, %r2, 4;
+add.u64 %rd5, %rd2, %rd4;
+ld.shared.f32 %f2, [%rd5];
+\end{lstlisting}
+

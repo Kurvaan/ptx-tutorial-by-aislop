@@ -1,0 +1,11 @@
+\subsubsection{cuobjdump}
+
+The `cuobjdump` tool extracts PTX or SASS from CUDA binaries:
+
+\begin{lstlisting}[language=bash]
+cuobjdump -ptx myprogram      # Extract PTX
+cuobjdump -sass myprogram     # Extract SASS
+\end{lstlisting}
+
+This is useful for examining what's inside a pre-built application or library, or verifying that your PTX was assembled as expected.
+

@@ -1,0 +1,15 @@
+\subsubsection{Compilation and Execution}
+
+To build and run this example:
+
+\begin{lstlisting}[language=bash]
+# Compile the host code (assuming vecAdd.ptx already exists)
+nvcc -o vecAdd_driver vecAdd_driver.cpp -lcuda
+
+# Alternatively, if you need to generate the PTX from the source
+# ptxas -arch=sm_80 vecAdd.ptx -o vecAdd.cubin
+
+# Run the program
+./vecAdd_driver
+\end{lstlisting}
+

@@ -1,0 +1,24 @@
+\subsubsection{Using NVRTC (Runtime Compilation)}
+
+NVIDIA Runtime Compilation (NVRTC) allows compiling CUDA C++ source or PTX code at runtime from strings in memory:
+
+\begin{lstlisting}[language=C++]
+// Create NVRTC program
+nvrtcProgram prog;
+nvrtcCreateProgram(&prog, ptxSource, "kernel.ptx", 0, NULL, NULL);
+
+// Compile the PTX source
+nvrtcResult compileResult = nvrtcCompileProgram(prog, 0, NULL);
+
+// Get the compiled PTX
+size_t ptxSize;
+nvrtcGetPTXSize(prog, &ptxSize);
+char* compiledPtx = new char[ptxSize];
+nvrtcGetPTX(prog, compiledPtx);
+
+// Use the compiled PTX with the CUDA driver API
+// ...
+\end{lstlisting}
+
+This approach is powerful for dynamic code generation or meta-programming, commonly used in deep learning frameworks for JIT-compiling specialized kernels \citep{llvm_nvptx_guide}.
+

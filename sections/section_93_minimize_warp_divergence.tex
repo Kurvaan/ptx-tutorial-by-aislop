@@ -1,0 +1,25 @@
+\subsubsection{Minimize Warp Divergence}
+
+When threads within a warp take different execution paths, the warp executes all paths serially, reducing efficiency:
+
+\begin{lstlisting}[style=ptx]
+// Potential divergence if condition varies within a warp
+setp.lt.f32 %p1, %f1, %f2;
+@%p1 bra PATH_A;
+// Path B instructions
+bra DONE;
+PATH_A:
+// Path A instructions
+DONE:
+\end{lstlisting}
+
+Instead, use predicated execution for short sequences:
+
+\begin{lstlisting}[style=ptx]
+// Predicated execution (all threads execute both paths, but only
+// affected by instructions where their predicate is true)
+setp.lt.f32 %p1, %f1, %f2;
+@%p1 add.f32 %f3, %f1, %f2;
+@!%p1 sub.f32 %f3, %f1, %f2;
+\end{lstlisting}
+

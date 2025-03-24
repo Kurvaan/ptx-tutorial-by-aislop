@@ -1,0 +1,18 @@
+\subsubsection{Additional Special Registers}
+
+PTX provides other special registers for advanced thread management:
+
+\begin{itemize}
+    \item \texttt{\%laneid} - The thread's index within its warp (0-31), useful for warp-synchronous programming
+    
+    \item \texttt{\%warpid} - The warp's index within the block
+    
+    \item \texttt{\%nwarpid} - Number of warps per block
+    
+    \item \texttt{\%smid} - SM identifier executing the thread
+    
+    \item \texttt{\%lanemask\_lt}, \texttt{\%lanemask\_le}, etc. - Masks for threads with lane IDs less than, less than or equal to, etc., the current thread
+\end{itemize}
+
+These are particularly useful for implementing warp-level optimizations, where threads in the same warp cooperate on a computation.
+

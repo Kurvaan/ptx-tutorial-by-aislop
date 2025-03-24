@@ -1,0 +1,21 @@
+\subsubsection{Synchronization}
+
+PTX provides various synchronization primitives to coordinate threads:
+
+\begin{lstlisting}[style=ptx]
+// Synchronize all threads in a block (equivalent to __syncthreads())
+bar.sync 0;
+
+// Memory fence for global memory operations
+membar.gl;
+
+// Memory fence for shared memory operations within a block
+membar.cta;
+\end{lstlisting}
+
+The \texttt{bar.sync} instruction corresponds to CUDA's \texttt{\_\_syncthreads()}, ensuring all threads in a block reach the barrier before any proceed. This is essential after writing to shared memory and before threads read each other's results.
+
+Memory fences (\texttt{membar}) ensure memory operations complete in the specified order, which can be important for complex algorithms with data dependencies.
+
+With these fundamentals—thread registers, basic arithmetic, memory operations, and synchronization—you can write complete GPU kernels in PTX. The next sections will apply these to practical examples, focusing on deep learning relevant computations.
+

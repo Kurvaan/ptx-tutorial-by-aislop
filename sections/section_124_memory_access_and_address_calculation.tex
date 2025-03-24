@@ -1,0 +1,25 @@
+\subsection{Memory Access and Address Calculation}
+
+Memory operations in PTX require explicit address calculation:
+
+\begin{lstlisting}[language=C++]
+// CUDA C++
+float value = input[idx];
+output[idx] = value * 2.0f;
+\end{lstlisting}
+
+\begin{lstlisting}[style=ptx]
+// PTX
+// Assuming input pointer is in %rd_input, output in %rd_output, idx in %r_idx
+mul.wide.u32 %rd1, %r_idx, 4;     // Multiply by 4 (bytes per float)
+add.u64 %rd2, %rd_input, %rd1;    // Add to base address
+ld.global.f32 %f1, [%rd2];        // Load from calculated address
+
+mul.f32 %f2, %f1, 0f40000000;     // Multiply by 2.0 (hex representation)
+
+add.u64 %rd3, %rd_output, %rd1;   // Calculate output address
+st.global.f32 [%rd3], %f2;        // Store result
+\end{lstlisting}
+
+Note the explicit conversion of the 32-bit index to a 64-bit byte offset (\texttt{mul.wide.u32}) and the manual addition to base addresses.
+

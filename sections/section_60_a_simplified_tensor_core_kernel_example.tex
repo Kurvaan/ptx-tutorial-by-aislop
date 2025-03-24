@@ -1,0 +1,45 @@
+\subsection{A Simplified Tensor Core Kernel Example}
+
+Let's look at how we might structure a simple kernel that uses Tensor Cores through PTX. We'll focus on the core MMA operation rather than showing a complete kernel.
+
+Assume we want to multiply two half-precision matrices A and B and add to accumulator C, all in a blocked fashion suitable for Tensor Cores:
+
+\begin{lstlisting}[style=ptx]
+// In this example, we'll do a 16x16x16 MMA operation using Tensor Cores
+// First, we need to load the matrix fragments from memory
+
+// Registers for matrix fragments
+.reg .b32 %A<4>;     // Matrix A fragment (16x16 half-precision elements)
+.reg .b32 %B<4>;     // Matrix B fragment (16x16 half-precision elements)
+.reg .f32 %C<8>;     // Accumulator (16x16 fp32 elements)
+.reg .f32 %D<8>;     // Result (16x16 fp32 elements)
+
+// Load matrix fragments (simplified - actual loading would involve shared memory)
+// ... loading code omitted for brevity
+
+// Initialize accumulator
+mov.f32 %C0, 0.0;
+mov.f32 %C1, 0.0;
+// ... and so on for C2-C7
+
+// Perform matrix multiplication using Tensor Cores
+// This performs D = A * B + C
+mma.sync.aligned.m16n8k16.row.col.f16.f16.f32.f32
+    {%D0,%D1,%D2,%D3,%D4,%D5,%D6,%D7},
+    {%A0,%A1,%A2,%A3},
+    {%B0,%B1,%B2,%B3},
+    {%C0,%C1,%C2,%C3,%C4,%C5,%C6,%C7};
+
+// Store results back to memory
+// ... storing code omitted
+\end{lstlisting}
+
+This is a simplified example—a complete kernel would include:
+
+\begin{itemize}
+    \item Code to load data from global memory into shared memory
+    \item Logic to arrange data in the correct layout for Tensor Cores
+    \item Code to distribute matrix fragments among threads in the warp
+    \item Loops to process larger matrices in tiles
+\end{itemize}
+

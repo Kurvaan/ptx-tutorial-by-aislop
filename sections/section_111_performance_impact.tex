@@ -1,0 +1,11 @@
+\subsubsection{Performance Impact}
+
+The custom fused attention implementation showed substantial gains:
+\begin{itemize}
+    \item \textbf{Latency reduction}: 2.3× lower latency for typical sequence lengths
+    \item \textbf{Memory reduction}: 3.5× less memory traffic due to eliminated intermediate results
+    \item \textbf{Scaling}: Better performance scaling with increasing sequence length
+\end{itemize}
+
+These improvements directly translated to overall model throughput improvements in transformer-based architectures like BERT and GPT.
+

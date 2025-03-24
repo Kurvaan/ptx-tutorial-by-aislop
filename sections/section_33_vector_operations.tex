@@ -1,0 +1,11 @@
+\subsubsection{Vector Operations}
+
+PTX supports vectorized operations for memory access and some arithmetic:
+
+\begin{lstlisting}[style=ptx]
+ld.global.v4.f32 {%f0, %f1, %f2, %f3}, [%rd1];  // Load 4 floats at once
+st.global.v2.f32 [%rd2], {%f0, %f1};           // Store 2 floats at once
+\end{lstlisting}
+
+Vector operations can improve memory bandwidth utilization and arithmetic throughput. However, they require proper alignment—for example, a \texttt{v4.f32} load requires 16-byte alignment of the memory address.
+

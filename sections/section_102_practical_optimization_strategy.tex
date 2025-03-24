@@ -1,0 +1,27 @@
+\subsection{Practical Optimization Strategy}
+
+With so many potential optimizations, it's important to have a systematic approach:
+
+\begin{enumerate}
+    \item \textbf{Identify the bottleneck}: Use Nsight Compute to determine if your kernel is memory-bound, compute-bound, or latency-bound.
+    
+    \item \textbf{Address the primary limitation first}:
+    \begin{itemize}
+        \item For memory-bound kernels: Focus on access patterns, shared memory usage, and caching.
+        \item For compute-bound kernels: Look at instruction selection, ILP, and special hardware units like Tensor Cores.
+        \item For latency-bound kernels: Consider increasing parallelism, reducing synchronization, or overlapping communication with computation.
+    \end{itemize}
+    
+    \item \textbf{Measure the impact} of each change before moving to the next optimization.
+    
+    \item \textbf{Balance competing concerns}: Sometimes improving one aspect (e.g., reducing register usage) negatively impacts another (e.g., requiring more recomputation).
+\end{enumerate}
+
+\opttip{
+Remember that PTX optimization is an iterative process. Don't try to apply all optimizations at once. Make incremental changes, measure their impact, and build on what works for your specific workload.
+}
+
+\warning{
+Even when writing PTX, NVIDIA's hardware-specific optimizations can sometimes do better than manual approaches. If your hand-tuned PTX performs worse than CUDA C++, don't hesitate to revert to the compiler-generated version.
+}
+

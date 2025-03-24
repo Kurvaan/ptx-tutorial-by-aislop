@@ -1,0 +1,9 @@
+\subsubsection{Initializing the Accumulator}
+
+Before the tile loop, we initialize the accumulator register to zero:
+
+\begin{lstlisting}[style=ptx]
+    // Initialize accumulator to 0.0
+    mov.f32 %f_acc, 0f00000000;  // Hex representation of 0.0f
+\end{lstlisting}
+

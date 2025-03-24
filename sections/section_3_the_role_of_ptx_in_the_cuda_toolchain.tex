@@ -1,0 +1,23 @@
+\subsection{The Role of PTX in the CUDA Toolchain}
+
+The CUDA compilation process involves several steps, as illustrated in Figure \ref{fig:cuda_pipeline}:
+
+\begin{enumerate}
+    \item The CUDA compiler (NVCC) separates host (CPU) code and device (GPU) code
+    \item The device code is compiled to PTX (an intermediate representation)
+    \item The PTX code is then assembled by \texttt{ptxas} into binary cubin code for a specific target GPU
+    \item Both PTX and cubin can be packaged into the final executable
+\end{enumerate}
+
+At runtime, the CUDA driver can:
+\begin{itemize}
+    \item Use the pre-compiled cubin if it matches the current GPU architecture
+    \item Or just-in-time compile the embedded PTX if running on a newer GPU architecture
+\end{itemize}
+
+This approach ensures both performance (through pre-compiled binaries) and forward compatibility (through JIT compilation of PTX) \citep{nvidia_ptx_blog}.
+
+\technote{
+PTX is human-readable text resembling assembly language. This makes it possible to inspect, modify, or even write PTX code from scratch, giving developers another level of control over GPU execution.
+}
+

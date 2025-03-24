@@ -1,0 +1,88 @@
+\subsection{Example: Vector Addition Kernel}
+
+Let's examine a simple vector addition kernel in CUDA C++ and its corresponding PTX to get a feel for the translation process.
+
+Here's a standard CUDA C++ implementation of vector addition:
+
+\begin{lstlisting}[language=C++]
+// CUDA C++ kernel (device code)
+__global__ void vecAdd(const float* A, const float* B, float* C, int N) {
+    int index = blockIdx.x * blockDim.x + threadIdx.x;
+    if (index < N) {
+        C[index] = A[index] + B[index];
+    }
+}
+\end{lstlisting}
+
+When compiled with \texttt{nvcc -ptx}, the resulting PTX for compute capability 8.0 would look something like this:
+
+\begin{lstlisting}[style=ptx]
+.visible .entry _Z6vecAddPKfS0_Pfi(
+    .param .u64 _Z6vecAddPKfS0_Pfi_param_0,
+    .param .u64 _Z6vecAddPKfS0_Pfi_param_1,
+    .param .u64 _Z6vecAddPKfS0_Pfi_param_2,
+    .param .u32 _Z6vecAddPKfS0_Pfi_param_3
+)
+{
+    .reg .pred  %p<2>;
+    .reg .f32   %f<4>;
+    .reg .b32   %r<6>;
+    .reg .b64   %rd<11>;
+
+    ld.param.u64    %rd1, [_Z6vecAddPKfS0_Pfi_param_0];  // load A pointer
+    ld.param.u64    %rd2, [_Z6vecAddPKfS0_Pfi_param_1];  // load B pointer
+    ld.param.u64    %rd3, [_Z6vecAddPKfS0_Pfi_param_2];  // load C pointer
+    ld.param.u32    %r2,  [_Z6vecAddPKfS0_Pfi_param_3];  // load N value
+
+    mov.u32   %r3, %tid.x;        // threadIdx.x
+    mov.u32   %r4, %ntid.x;       // blockDim.x
+    mov.u32   %r5, %ctaid.x;      // blockIdx.x
+    mad.lo.s32 %r1, %r5, %r4, %r3; // r1 = blockIdx.x * blockDim.x + threadIdx.x
+
+    setp.ge.u32 %p1, %r1, %r2;    // if r1 >= N, set predicate p1
+    @%p1 bra   DONE;             // if p1 (index >= N) is true, branch to DONE
+
+    cvta.to.global.u64 %rd4, %rd1;   // convert A pointer to global address
+    mul.wide.u32  %rd5, %r1, 4;      // rd5 = index * 4 (byte offset, float=4 bytes)
+    add.s64   %rd6, %rd4, %rd5;      // rd6 = A + index*4
+    ld.global.f32 %f1, [%rd6];       // f1 = A[index]
+    cvta.to.global.u64 %rd7, %rd2;   // convert B pointer
+    add.s64   %rd8, %rd7, %rd5;      // rd8 = B + index*4
+    ld.global.f32 %f2, [%rd8];       // f2 = B[index]
+    add.f32  %f3, %f1, %f2;          // f3 = f1 + f2  (the addition)
+    cvta.to.global.u64 %rd9, %rd3;   // convert C pointer
+    add.s64   %rd10, %rd9, %rd5;     // rd10 = C + index*4
+    st.global.f32 [%rd10], %f3;      // C[index] = f3
+
+DONE:
+    ret;
+\end{lstlisting}
+
+Let's analyze the key elements in this PTX code:
+
+\begin{enumerate}
+    \item \textbf{Function Declaration}: The \texttt{.visible .entry} directive defines a GPU kernel that can be called from host code. The mangled name \texttt{\_Z6vecAddPKfS0\_Pfi} corresponds to our \texttt{vecAdd} function with its parameter types.
+    
+    \item \textbf{Parameter Declarations}: Parameters are declared with \texttt{.param} directives, specifying their types (\texttt{.u64} for pointers, \texttt{.u32} for integers).
+    
+    \item \textbf{Register Declarations}: The \texttt{.reg} directives declare registers of various types to hold values during computation. For example, \texttt{.reg .f32 \%f<4>;} declares four 32-bit floating-point registers.
+    
+    \item \textbf{Loading Parameters}: The \texttt{ld.param} instructions load function parameters into registers.
+    
+    \item \textbf{Thread Index Calculation}: The code uses special registers (\texttt{\%tid.x}, \texttt{\%ntid.x}, \texttt{\%ctaid.x}) to compute the global thread index, mirroring our C++ formula \texttt{blockIdx.x * blockDim.x + threadIdx.x}.
+    
+    \item \textbf{Boundary Check}: The \texttt{setp.ge.u32} and \texttt{@\%p1 bra} instructions implement the \texttt{if (index < N)} check from our C++ code.
+    
+    \item \textbf{Memory Access}: PTX uses explicit memory operations (\texttt{ld.global.f32}, \texttt{st.global.f32}) for loading and storing data, with manual calculation of byte addresses.
+    
+    \item \textbf{Arithmetic Operation}: The \texttt{add.f32} instruction performs the actual addition of the two float values.
+\end{enumerate}
+
+This example illustrates the verbosity of PTX compared to CUDA C++. The simple three-line body of our C++ kernel expands to over 20 lines of PTX, with explicit management of registers, memory addressing, and control flow.
+
+\technote{
+PTX uses virtual registers (like \texttt{\%r1}, \texttt{\%f3}) instead of named high-level variables. It explicitly converts pointers and calculates byte offsets for memory accesses, showing what the CUDA compiler does behind the scenes.
+}
+
+By examining compiler-generated PTX for simple kernels, you can build a mental model of how common CUDA constructs translate to assembly form. This is valuable preparation for writing your own PTX code or modifying compiler output for optimization.
+

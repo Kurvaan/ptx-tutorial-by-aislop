@@ -1,0 +1,23 @@
+\subsubsection{Implementing Loops}
+
+Loops in PTX are implemented with labels and branches:
+
+\begin{lstlisting}[style=ptx]
+mov.u32 %r1, 0;    // Initialize loop counter
+
+LOOP_START:
+// Loop body instructions
+// ...
+
+add.u32 %r1, %r1, 1;            // Increment counter
+setp.lt.u32 %p1, %r1, %r2;      // p1 = (r1 < r2)
+@%p1 bra LOOP_START;            // If p1, go back to start
+                                // Otherwise, fall through
+\end{lstlisting}
+
+This pattern implements a basic for-loop that iterates from 0 to less than \texttt{r2}.
+
+\warning{
+Writing complex control flow in PTX can be tricky. Modern GPU performance often benefits from minimizing divergent branches within a warp. When possible, use predication for short conditional code to avoid branch divergence overhead.
+}
+

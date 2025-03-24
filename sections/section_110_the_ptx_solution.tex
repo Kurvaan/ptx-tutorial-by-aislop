@@ -1,0 +1,50 @@
+\subsubsection{The PTX Solution}
+
+We developed a custom fused kernel that:
+\begin{enumerate}
+    \item Computes the query-key products directly into shared memory
+    \item Computes the softmax normalization within each attention head
+    \item Immediately applies the normalized weights to the value matrix
+\end{enumerate}
+
+Key optimizations in the PTX implementation included:
+\begin{itemize}
+    \item Carefully tiled matrix multiplications to maximize shared memory reuse
+    \item Cooperative computation of softmax max and sum values using warp shuffles
+    \item Asynchronous global memory loads to overlap computation and data movement
+\end{itemize}
+
+Here's a snippet showing the warp-cooperative max-finding for softmax:
+
+\begin{lstlisting}[style=ptx]
+// Find maximum value across a warp for softmax stability
+mov.f32 %f_max, %f_val;           // Start with this thread's value
+
+// Warp reduction to find maximum (log2(32) = 5 steps)
+.reg .f32 %f_other;
+.reg .pred %p_max;
+
+// Shuffle step 1 (stride 16)
+shfl.sync.down.b32 %f_other, %f_max, 16, 0x1f;
+max.f32 %f_max, %f_max, %f_other;
+
+// Shuffle step 2 (stride 8)
+shfl.sync.down.b32 %f_other, %f_max, 8, 0x1f;
+max.f32 %f_max, %f_max, %f_other;
+
+// Shuffle step 3 (stride 4)
+shfl.sync.down.b32 %f_other, %f_max, 4, 0x1f;
+max.f32 %f_max, %f_max, %f_other;
+
+// Shuffle step 4 (stride 2)
+shfl.sync.down.b32 %f_other, %f_max, 2, 0x1f;
+max.f32 %f_max, %f_max, %f_other;
+
+// Shuffle step 5 (stride 1)
+shfl.sync.down.b32 %f_other, %f_max, 1, 0x1f;
+max.f32 %f_max, %f_max, %f_other;
+
+// Broadcast max to all threads in the warp
+shfl.sync.idx.b32 %f_max, %f_max, 0, 0x1f;
+\end{lstlisting}
+

@@ -1,0 +1,108 @@
+\subsubsection{Host Code to Launch the PTX Kernel}
+
+Here's the C++ host code to compile, load, and execute this PTX kernel:
+
+\begin{lstlisting}[language=C++]
+#include <cuda.h>
+#include <iostream>
+#include <vector>
+#include <stdexcept>
+
+// Helper error-checking macro
+#define CHECK_CUDA(call) { \
+    CUresult status = call; \
+    if (status != CUDA_SUCCESS) { \
+        const char* errName; \
+        cuGetErrorName(status, &errName); \
+        throw std::runtime_error("CUDA Error: " + std::string(errName)); \
+    } \
+}
+
+int main() {
+    // Initialize CUDA Driver API
+    CHECK_CUDA(cuInit(0));
+    
+    // Get a CUDA device
+    CUdevice device;
+    CHECK_CUDA(cuDeviceGet(&device, 0));
+    
+    // Create a CUDA context
+    CUcontext context;
+    CHECK_CUDA(cuCtxCreate(&context, 0, device));
+    
+    // Load the PTX module
+    CUmodule module;
+    CHECK_CUDA(cuModuleLoad(&module, "vecAdd.ptx"));
+    
+    // Get function handle
+    CUfunction vecAdd;
+    CHECK_CUDA(cuModuleGetFunction(&vecAdd, module, "vecAdd"));
+    
+    // Set up data
+    const int N = 1024 * 1024; // 1M elements
+    size_t size = N * sizeof(float);
+    
+    // Host data
+    std::vector<float> h_A(N, 1.0f); // Initialize A with 1.0
+    std::vector<float> h_B(N, 2.0f); // Initialize B with 2.0
+    std::vector<float> h_C(N);       // Output vector
+    
+    // Allocate device memory
+    CUdeviceptr d_A, d_B, d_C;
+    CHECK_CUDA(cuMemAlloc(&d_A, size));
+    CHECK_CUDA(cuMemAlloc(&d_B, size));
+    CHECK_CUDA(cuMemAlloc(&d_C, size));
+    
+    // Copy data to device
+    CHECK_CUDA(cuMemcpyHtoD(d_A, h_A.data(), size));
+    CHECK_CUDA(cuMemcpyHtoD(d_B, h_B.data(), size));
+    
+    // Set up launch configuration
+    int threadsPerBlock = 256;
+    int blocksPerGrid = (N + threadsPerBlock - 1) / threadsPerBlock;
+    
+    // Set up kernel parameters
+    void* args[] = {
+        &d_A, &d_B, &d_C, &N
+    };
+    
+    // Launch the kernel
+    CHECK_CUDA(cuLaunchKernel(
+        vecAdd,
+        blocksPerGrid, 1, 1,     // Grid dimensions
+        threadsPerBlock, 1, 1,   // Block dimensions
+        0, nullptr,              // Shared memory and stream
+        args, nullptr            // Arguments and extra options
+    ));
+    
+    // Wait for the kernel to complete
+    CHECK_CUDA(cuCtxSynchronize());
+    
+    // Copy result back to host
+    CHECK_CUDA(cuMemcpyDtoH(h_C.data(), d_C, size));
+    
+    // Verify the result
+    bool correct = true;
+    for (int i = 0; i < N; i++) {
+        if (fabs(h_C[i] - 3.0f) > 1e-5) {
+            std::cout << "Error at " << i << ": " << h_C[i] << " != 3.0\n";
+            correct = false;
+            break;
+        }
+    }
+    
+    if (correct) {
+        std::cout << "Vector addition successful! C = A + B = 1.0 + 2.0 = 3.0\n";
+    }
+    
+    // Clean up
+    CHECK_CUDA(cuMemFree(d_A));
+    CHECK_CUDA(cuMemFree(d_B));
+    CHECK_CUDA(cuMemFree(d_C));
+    CHECK_CUDA(cuModuleUnload(module));
+    CHECK_CUDA(cuCtxDestroy(context));
+    
+    return 0;
+}
+\end{lstlisting}
+

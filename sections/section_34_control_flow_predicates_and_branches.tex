@@ -1,0 +1,19 @@
+\subsubsection{Control Flow: Predicates and Branches}
+
+Unlike high-level languages with structured control flow (if/else, loops), PTX uses predicates and branches for control flow:
+
+\begin{lstlisting}[style=ptx]
+// Compute if r1 >= r2
+setp.ge.u32 %p1, %r1, %r2;  // Set predicate p1 true if r1 >= r2
+@%p1 bra TARGET;           // If p1 is true, branch to TARGET
+                           // Fall through if p1 is false
+
+// Code executed if r1 < r2
+// ...
+
+TARGET:
+// Code executed if r1 >= r2 (or after the above code)
+\end{lstlisting}
+
+The \texttt{setp} instruction sets a predicate register based on a comparison. The \texttt{@\%p} prefix on an instruction makes it conditional, executing only if the predicate is true.
+

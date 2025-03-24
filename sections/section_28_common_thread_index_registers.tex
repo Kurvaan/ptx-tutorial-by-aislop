@@ -1,0 +1,14 @@
+\subsubsection{Common Thread Index Registers}
+
+The main special registers for thread indexing are:
+
+\begin{itemize}
+    \item \texttt{\%tid.x}, \texttt{\%tid.y}, \texttt{\%tid.z} - Thread index within its block (equivalent to \texttt{threadIdx} in CUDA C++)
+    
+    \item \texttt{\%ctaid.x}, \texttt{\%ctaid.y}, \texttt{\%ctaid.z} - Block index within the grid (equivalent to \texttt{blockIdx})
+    
+    \item \texttt{\%ntid.x}, \texttt{\%ntid.y}, \texttt{\%ntid.z} - Block dimensions (equivalent to \texttt{blockDim}, i.e., number of threads per block in each dimension)
+    
+    \item \texttt{\%nctaid.x}, \texttt{\%nctaid.y}, \texttt{\%nctaid.z} - Grid dimensions (equivalent to \texttt{gridDim}, i.e., number of blocks in the grid)
+\end{itemize}
+

@@ -1,0 +1,22 @@
+\subsubsection{Loop Unrolling}
+
+Manually unroll loops to reduce branch overhead and increase instruction-level parallelism:
+
+\begin{lstlisting}[style=ptx]
+// Original loop
+    mov.u32 %r1, 0;              // Initialize counter
+LOOP:
+    // ... loop body instructions
+    add.u32 %r1, %r1, 1;         // Increment counter
+    setp.lt.u32 %p1, %r1, 4;     // Check if counter < 4
+    @%p1 bra LOOP;               // Branch back if not done
+
+// Unrolled version (no loop overhead)
+    // ... loop body instructions for iteration 0
+    // ... loop body instructions for iteration 1
+    // ... loop body instructions for iteration 2
+    // ... loop body instructions for iteration 3
+\end{lstlisting}
+
+Unrolling is particularly effective for small, fixed-size loops with few dependencies between iterations.
+

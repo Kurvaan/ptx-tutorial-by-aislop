@@ -1,0 +1,18 @@
+\subsection{NVIDIA Nsight Systems}
+
+While Nsight Compute focuses on individual kernels, Nsight Systems provides a system-wide view of application performance, including CPU-GPU interaction, memory transfers, and kernel execution timeline.
+
+\begin{lstlisting}[language=bash]
+nsys profile ./myprogram
+\end{lstlisting}
+
+This generates a report showing:
+\begin{itemize}
+    \item Timeline of CPU and GPU activities
+    \item Kernel launches and durations
+    \item Memory operations between host and device
+    \item CUDA API calls
+\end{itemize}
+
+Nsight Systems helps identify system-level bottlenecks, such as insufficient CPU-GPU parallelism or excessive memory transfers, which might impact the overall performance even if individual kernels are well-optimized.
+

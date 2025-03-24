@@ -1,0 +1,13 @@
+\subsubsection{Basic Arithmetic Instructions}
+
+Arithmetic operations in PTX specify the operation, data type, and operands:
+
+\begin{lstlisting}[style=ptx]
+add.f32 %f3, %f1, %f2;   // f3 = f1 + f2 (float addition)
+sub.s32 %r3, %r1, %r2;   // r3 = r1 - r2 (signed int subtraction)
+mul.f32 %f4, %f1, 2.5;   // f4 = f1 * 2.5 (float multiplication with immediate)
+mad.f32 %f5, %f1, %f2, %f3;  // f5 = f1 * f2 + f3 (fused multiply-add)
+\end{lstlisting}
+
+The type suffix (e.g., \texttt{.f32}, \texttt{.s32}) specifies the data type the instruction operates on. This allows PTX to use the same opcode (e.g., \texttt{add}) for different data types, with the suffix distinguishing them.
+

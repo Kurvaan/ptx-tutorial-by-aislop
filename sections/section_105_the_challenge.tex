@@ -1,0 +1,11 @@
+\subsubsection{The Challenge}
+
+In deep neural networks, each layer typically applies both a linear transformation and a non-linear activation function. When implemented separately, this requires:
+\begin{enumerate}
+    \item Computing the linear output and storing it to global memory
+    \item Loading the values back from global memory
+    \item Applying the activation function and storing the result
+\end{enumerate}
+
+This approach wastes memory bandwidth and increases latency.
+

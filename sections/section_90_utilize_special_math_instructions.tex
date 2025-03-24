@@ -1,0 +1,15 @@
+\subsubsection{Utilize Special Math Instructions}
+
+PTX offers various specialized math instructions that can be faster than standard sequences:
+
+\begin{lstlisting}[style=ptx]
+// Use fused multiply-add instead of separate operations
+fma.rn.f32 %f3, %f1, %f2, %f4;    // f3 = f1 * f2 + f4 (single instruction)
+
+// Use fast approximations when appropriate
+rcp.approx.f32 %f2, %f1;          // Approximate reciprocal (1/x)
+sqrt.approx.f32 %f2, %f1;         // Approximate square root
+\end{lstlisting}
+
+The `.approx` variants trade some precision for speed, which is often acceptable in deep learning where exact values are less critical.
+

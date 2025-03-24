@@ -1,0 +1,17 @@
+\subsubsection{Consider Asynchronous Memory Operations}
+
+On Ampere and newer architectures, asynchronous copy operations can overlap data movement with computation:
+
+\begin{lstlisting}[style=ptx]
+// Asynchronous copy from global to shared memory
+cp.async.cg.shared.global [%rd_shared], [%rd_global], 16;
+
+// Continue computing while the copy happens
+
+// Synchronize to ensure copy completion
+cp.async.commit_group;
+cp.async.wait_group 0;
+\end{lstlisting}
+
+This technique is particularly powerful for operations with regular memory access patterns like matrix multiplication.
+
